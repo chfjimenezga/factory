@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Login Usuario</title>
+    </h:head>
+    <h:body>
+        <panel>
+            <h:form>
+                <h4>LOGIN</h4>
+                <h:panelGrid columns="2">  
+                    <label>Ingrese su cuenta Id:</label>
+                    <h:inputText value="#{LoginBean.id_usuario}" required="true" requiredMessage="Campo requerido"/>
+                    <label>Ingrese su contraseña:</label>
+                    <h:inputText value="#{LoginBean.contrasena}" required="true" requiredMessage="Campo requerido"/>
+                </h:panelGrid>
+                <br/>
+                <label>Mensaje: </label>
+                <h:outputText value="#{LoginBean.mensaje}"/>
+                <br/>
+                <br/>
+                <h:commandButton action="#{LoginBean.login()}" value="login"/>                
+            </h:form>
+        </panel>
+    </h:body>
+</html>
+
