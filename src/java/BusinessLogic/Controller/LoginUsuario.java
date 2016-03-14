@@ -38,4 +38,11 @@ public class LoginUsuario {
     return usuario.getRol();
     }
     
+    public String nombre(String id_usuario){
+    UsuarioDAO usuarioDAO = new UsuarioDAO();
+    Usuario usuario = new Usuario();
+    usuario = usuarioDAO.buscarIdUsuario(id_usuario);
+    return usuario.getNombre();
+    }
+    
 }
