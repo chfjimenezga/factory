@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Empleado</title>
+    <link rel="stylesheet" href="css/uikit.almost-flat.min.css" />
+    <link rel="stylesheet" href="css/components/sticky.almost-flat.min.css" />
+    <link rel="stylesheet" href="css/components/slideshow.almost-flat.min.css" />
+    <link rel="stylesheet" href="css/components/slidenav.almost-flat.min.css" />
+    <link rel="stylesheet" href="css/components/dotnav.almost-flat.min.css" />
+    <link rel="stylesheet" href="css/components/slider.min.css" />
+    <link rel="stylesheet" href="css/adiciones/estilonav.css" />
+    <link rel="stylesheet" href="css/adiciones/subslider.css" />
+    
+
+    <script src="js/jquery-2.2.0.min.js"></script>
+    <script src="js/uikit.min.js"></script>
+    <script src="js/components/sticky.min.js"></script>
+    <script src="js/components/slideshow.min.js"></script>
+    <script src="js/components/slideshow-fx.min.js"></script>
+    <script src="js/components/slideset.min.js"></script>
+    <script src="js/components/grid.min.js"></script>
+</head>
+<body>
+    <!--navbar con menu admin-->
+    <nav class="tm-navbar uk-navbar uk-navbar-attached" data-uk-sticky>
+        <a href="" class="uk-navbar-brand uk-visible-large">
+            <img src="images/logo1.png" width="90" height="30">
+        </a>
+        <ul class="uk-navbar-nav uk-visible-large" data-uk-scrollspy-nav="{closest: 'li', smoothscroll: {offset: 50}}">
+            <li><a href="#">Cerrar sesión</a></li>
+            <!--pendiente el menu-->            
+        </ul>
+
+        <a href="#offcanvas" class="uk-navbar-toggle uk-hidden-large" data-uk-offcanvas></a>
+        <a href="" class="uk-navbar-brand uk-navbar-center uk-hidden-large"><img src="images/logo1.png" width="90" height="30"></a>             
+    </nav>
+
+    <!--menu offcanvas-->
+    <div id="offcanvas" class="uk-offcanvas">
+            <div class="uk-offcanvas-bar">
+                <ul class="uk-nav uk-nav-offcanvas">
+                    <li><a href="#">Cerrar sesión</a></li>
+                    <!--pendiente el menu-->
+                </ul>
+            </div>
+        </div>
+
+    <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+        <div class="uk-grid" data-uk-grid-margin>
+            <div class="uk-width-1-1 uk-row-fist">
+                <h1 class="uk-heading-large">Bienvenido!</h1>
+                <p class="uk-text-large">Usted ha iniciado sesión como Empleado.  Gestione todo lo referente  a los pedidos realizados por los clientes a la organización.  Puede llevar control de cada pedido, visualizando y modificando el estado cuando este haya terminado.  Puede visualizar la materia prima  en el proceso de producción.</p>
+            </div>
+        </div>
+        <div class="uk-grid" data-uk-grid-margin>
+            <div class="uk-width-medium-3-4 uk-row-fist">
+                <h2>Para empezar</h2>
+                <p>Consulte a continuación las funciones y descripción de cada función para que se familiarice con su rol de empleado...</p>
+
+                <div id="tm-top-a" class="tm-block-top-a uk-block uk-block-secondary uk-contrast tm-block-fullwidth tm-grid-collapse">
+
+                    <div class="uk-container uk-container-center">
+
+                        <section class="tm-top-a uk-grid" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin="">
+                    
+                            <div class="uk-width-1-1 uk-row-first"><div class="uk-panel widget_widgetkit">
+                                <div id="wk-e25" class="tm-slideshow-panel-avanti ">
+                                    <div class="uk-panel uk-panel uk-padding-remove uk-overflow-hidden">
+
+                                        <div class="uk-grid uk-grid-collapse uk-flex-middle" data-uk-grid-margin="">
+                                            <div class="uk-width-large-1-2 uk-text-center uk-row-first">
+                
+                                                <div class="uk-slidenav-position" data-uk-slideshow="{animation: 'swipe'}">
+
+                                                    <ul class="uk-slideshow" style="height: 420px;">
+        
+
+
+                                                        <li style="min-height: 420px; height: 420px;" aria-hidden="false" class="uk-active"><div class="uk-cover-background uk-position-cover"></div>
+
+                                                            <img src="images/funcion1empleado.jpg" style="width: 100%; height: auto; opacity: 0;">
+                                                        </li>
+
+        
+
+
+                                                        <li style="min-height: 420px; height: 420px;" aria-hidden="true"><div class="uk-cover-background uk-position-cover" ></div>
+                
+                                
+                
+                                                            <img src="images/funcion3admin.jpg" style="width: 100%; height: auto; opacity: 0;">
+                                                        </li>
+
+                                                    </ul>
+
+                                                    <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous uk-hidden-touch" data-uk-slideshow-item="previous"></a>
+                                                    <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next uk-hidden-touch" data-uk-slideshow-item="next"></a>
+                                
+                                                    <div class="uk-position-bottom uk-margin-large-bottom uk-margin-large-right">
+                                    
+                                                        <ul class="uk-dotnav uk-dotnav-contrast uk-flex-right uk-margin-bottom-remove">
+                                                            <li data-uk-slideshow-item="0" class="uk-active"><a href="#">Control de Pedidos</a></li>
+                                                            <li data-uk-slideshow-item="1"><a href="#">Datos personales y de cuenta</a></li>
+                                                        </ul>    
+                                                    </div>  
+    
+                                                </div>
+                                            </div>
+                                            <div class="uk-width-large-1-2 uk-grid-margin uk-row-first">
+        
+                                                <div class="uk-panel-body uk-text-left" data-uk-slideshow="{}">
+                                                    <ul class="uk-slideshow" style="height: 187px;">
+                
+                                                        <li aria-hidden="false" class="uk-active" style="height: 187px;">
+
+                                                            <div class="uk-width-xlarge-3-5">
+
+                                                                <h3 class="uk-h1 uk-margin-top-remove">
+
+                                                                    <a class="uk-link-reset" href="#">Control de Pedidos</a>
+                            
+                                                                </h3>
+                        
+                                                                <div class=" uk-margin-top"><p>LLeve control de pedidos realizados por los clientes a la organización, puede visualizar y modificar el estado del pedido.</p></div>
+                        
+                                                                    <p class="uk-margin-bottom-remove"><a class="uk-button uk-button-link" href="">Ir abajo</a></p>
+                        
+                                                                </div>
+
+                                                        </li>
+
+            
+                                                        <li aria-hidden="true" style="height: 187px;">
+
+                                                            <div class="uk-width-xlarge-3-5">
+
+                                                                <h3 class="uk-h1 uk-margin-top-remove">
+
+                                                                    <a class="uk-link-reset" href="?page_id=46">Datos personales y de cuenta</a>
+                                                                </h3>
+                        
+                                                                <div class=" uk-margin-top"><p>Puede modificar sus datos personales.  Para solicitar cambio de email y/o contraseña, debe comunicarse con su administrador</p></div>
+                        
+                                                                <p class="uk-margin-bottom-remove"><a class="uk-button uk-button-link" href="#">Ir</a></p>
+                        
+                                                            </div>
+
+                                                        </li>
+
+                                                    </ul>
+
+            
+                                                </div>
+
+                                            </div>
+                                        </div>
+        
+                                    </div>
+                                </div>
+
+                            <script>
+
+                                (function($){
+
+                                    var container  = $('#wk-e25'),
+                                        slideshows = container.find('[data-uk-slideshow]');
+
+                                    container.on('beforeshow.uk.slideshow', function(e, next) {
+                                        slideshows.not(next.closest('[data-uk-slideshow]')[0]).data('slideshow').show(next.index());
+                                    });
+
+                                })(jQuery);
+
+                            </script>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+            <h3>¿Qué desea hacer?</h3>
+                    <div class="uk-grid" data-uk-grid-margin data-uk-grid-match="{target:'.uk-panel'}">
+                        <div class="uk-width-medium-1-2 uk-row-first">
+                            <div class="uk-panel uk-panel-box">
+                                <h3 class="uk-panel-title">Pedidos</h3>
+                                Gestione los pedidos, puede visualizarlos y modificar el estado del pedido dependiendo del estado de este.<br><br>
+                                <a class="uk-button uk-button-primary" data-uk-toggle="{target:'#usuarios', animation: 'uk-animation-slide-top, uk-animation-slide-bottom'}">Gestionar</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                <hr class="uk-grid-divider">
+                <div id="usuarios" class="uk-hidden uk-panel uk-panel-box uk-panel-box-primary">
+                    <div class="uk-overflow-container">
+                    <table class="uk-table uk-table-hover uk-table-striped uk-table-condensed uk-text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Pedido</th>
+                                    <th>Cliente</th>
+                                    <th>Estado del pedido</th>
+                                    <th>Realizado por</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Escritorio Oficina</td>
+                                    <td>cliente 1</td>
+                                    <td>
+                                        <select class="uk-margin-small-top">
+                                            <option>En curso</option>
+                                            <option>Terminado</option>
+                                            <option>Entregado</option>
+                                        </select>
+                                    </td>
+                                    <td>Empleado</td>
+                                </tr>
+                                <tr>
+                                    <td>Cama Doble</td>
+                                    <td>cliente 2</td>
+                                    <td>
+                                        <select class="uk-margin-small-top">
+                                            <option>En curso</option>
+                                            <option>Terminado</option>
+                                            <option>Entregado</option>
+                                        </select>
+                                    </td>
+                                    <td>Empleado</td>
+                                </tr>
+                                <tr>
+                                    <td>Cama Sencilla</td>
+                                    <td>cliente 2</td>
+                                    <td>
+                                        <select class="uk-margin-small-top">
+                                            <option>En curso</option>
+                                            <option>Terminado</option>
+                                            <option>Entregado</option>
+                                        </select>
+                                    </td>
+                                    <td>Empleado</td>
+                                </tr>
+                                <tr>
+                                    <td>Juego de Sala</td>
+                                    <td>cliente 2</td>
+                                    <td>
+                                        <select class="uk-margin-small-top">
+                                            <option>En curso</option>
+                                            <option>Terminado</option>
+                                            <option>Entregado</option>
+                                        </select>
+                                    </td>
+                                    <td>Empleado</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                </div>
+                <div class="uk-text-right">
+                    <hr class="uk-grid-divider">
+                    <a href="#" class="uk-button uk-button-primary">Nuevo usuario</a>
+                </div>
+                    
+                </div>
+
+                <div id="materia" class="uk-hidden uk-panel uk-panel-box uk-panel-box-primary">
+                    <div class="uk-overflow-container">
+                    <table class="uk-table uk-table-hover uk-table-striped uk-table-condensed uk-text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Material</th>
+                                    <th>Descripción</th>
+                                    <th>Cantidad</th>
+                                    <th>Proveedor</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Cuero</td>
+                                    <td>Usado para muebles de hogar y oficina.</td>
+                                    <td>30</td>
+                                    <td>Cueros LTDA.</td>
+                                    <td><div class="uk-button-group">
+                                        <a href="#" class="uk-button uk-button-success uk-button-small">Modificar</a>
+                                        <button class="uk-button uk-button-danger uk-button-small">Borrar</button>
+                                    </div></td>
+                                </tr>
+                                <tr>
+                                    <td>Madera</td>
+                                    <td>Usado para mesas, muebles, sillas,<br> escritorios.  Disponible en: Cedro, roble y olmo</td>
+                                    <td>800</td>
+                                    <td>Asesinos de árboles SAS.</td>
+                                    <td><div class="uk-button-group">
+                                        <a href="#" class="uk-button uk-button-success uk-button-small">Modificar</a>
+                                        <button class="uk-button uk-button-danger uk-button-small">Borrar</button>
+                                    </div></td>
+                                </tr>
+                                <tr>
+                                    <td>Tela</td>
+                                    <td>Usado para muebles y algunos tipos de sillas<br> Disponible en color azul, verde y negro.</td>
+                                    <td>50</td>
+                                    <td>Twerking LTDA.</td>
+                                    <td><div class="uk-button-group">
+                                        <a href="#" class="uk-button uk-button-success uk-button-small">Modificar</a>
+                                        <button class="uk-button uk-button-danger uk-button-small">Borrar</button>
+                                    </div></td>
+                                </tr>
+                                <tr>
+                                    <td>Aglomerados</td>
+                                    <td>Para determinados tipo de muebles y estantería<br> de oficina.  <br>
+                                        Disponible en color café y café oscuro.</td>
+                                    <td>120</td>
+                                    <td>Farsa de Madera LTDA.</td>
+                                    <td><div class="uk-button-group">
+                                        <a href="#" class="uk-button uk-button-success uk-button-small">Modificar</a>
+                                        <button class="uk-button uk-button-danger uk-button-small">Borrar</button>
+                                    </div></td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                </div>
+                <div class="uk-text-right">
+                    <hr class="uk-grid-divider">
+                    <a href="#" class="uk-button uk-button-primary">Nuevo Producto</a>
+                </div>
+                    
+                </div>
+                
+
+
+            </div>
+            <div class="uk-width-medium-1-4 uk-hidden-small">
+                <div class="uk-sticky-placeholder" style="height: 270px; margin: 0px;">
+                    <div class="uk-panel uk-panel-box" data-uk-sticky="{top:250}" style="margin: 0px;">
+                        <ul class="uk-nav uk-nav-side" data-uk-scrollspy-nav="{closest:'li', smoothscroll:true}">
+                            <li class="uk-nav-header">Menú</li>
+                            <li class=""><a data-uk-modal="{target:'#profile-details'}">Mi perfil</a></li>
+                            <li class=""><a data-uk-modal="{target:'#account-details'}">Configuración de Cuenta</a></li>
+                            <li class="uk-nav-header">Cerrar sesión</li>
+                            <li class=""><a href="#">Salir</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--VISUALIZACIÓN DE PERFIL-->
+    <div id="profile-details" class="uk-modal">
+                <div class="uk-modal-dialog">
+                  <a class="uk-modal-close uk-close"></a>
+                  <div class="uk-modal-header"><h2>MI PERFIL</h2></div>
+                  <div class="uk-overflow-container">
+                    <!--CONTENIDO PERFIL-->
+                    <div class="uk-grid uk-grid-match" data-uk-grid-match="{target:'.uk-panel'}">
+                        <div class="uk-width-medium-2-4">
+                            <div class="uk-panel uk-panel-box">
+                                <h2 class="uk-panel-title">Mis Datos Personales</h2><br>
+
+                                <strong>Nombre:</strong> <br>100tifiko<br>
+                                <strong>Usuario:</strong> <br>100tifiko<br>
+                                <strong>Email:</strong> <br>100tifiko@unal.edu.co<br>
+                                <strong>Cargo:</strong> <br>Empleado<br>
+
+                                
+                            </div>
+                        </div>
+                        <div class="uk-width-medium-2-4">
+                            <div class="uk-panel uk-panel-box uk-text-justify">
+                                <img src="images/profile2.gif">
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    
+                  </div>
+                  <div class="uk-modal-footer uk-text-right">
+                        <button class="uk-button uk-button-primary uk-modal-close">Ok</button>
+                    </div>
+                </div>
+              </div>
+
+    <div id="account-details" class="uk-modal">
+                <div class="uk-modal-dialog">
+                  <a class="uk-modal-close uk-close"></a>
+                  <div class="uk-modal-header"><h2>CONFIGURACIÓN DE CUENTA</h2></div>
+                  <div class="uk-overflow-container">
+                    <!--CONTENIDO PERFIL-->
+                    <div class="uk-grid uk-grid-match" data-uk-grid-match="{target:'.uk-panel'}">
+                        <div class="uk-width-medium-2-4">
+                            <div class="uk-panel uk-panel-box">
+                                <h2 class="uk-panel-title">Mis Datos Personales</h2><br>
+
+                                espacio para modificar
+
+                                
+                            </div>
+                        </div>
+                        <div class="uk-width-medium-2-4">
+                            <div class="uk-panel uk-panel-box uk-text-justify">
+                                espacio para subir foto
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    
+                  </div>
+                  <div class="uk-modal-footer uk-text-right">
+                        <button class="uk-button uk-modal-close">Cancelar</button>
+                        <button class="uk-button uk-button-primary uk-modal-close">Guardar</button>
+                    </div>
+                </div>
+              </div>    
+</body>
+</html>
