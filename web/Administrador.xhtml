@@ -9,15 +9,16 @@
     <h:body>
         <h4>ADMINISTRADOR</h4>
         <h:outputLabel value="Ingreso con el usuario: "/>
-        <h:outputText value="#{SesionUsuarioAdministradorBean.nombre_usuario}"/>
+        <h:outputText value="#{AdministradorBean.nombre_usuario}"/>
         <h:form>
-            <h:commandButton action="#{SesionUsuarioAdministradorBean.logout}" value="cerrar session" />
-            <h:commandButton action="#{SesionUsuarioAdministradorBean.buscaMateria()}" value="Buscar Materias"/>
+            <h:commandButton action="#{AdministradorBean.logout}" value="cerrar session" />
+            <h:commandButton action="#{AdministradorBean.buscaMateria()}" value="Buscar Materias"/>
+            <h:commandButton action="#{AdministradorBean.buscaEmpleados()}" value="Listar Empleados"/>
         </h:form>
         <br/>
         <br/>
         
-        <h:dataTable value="#{SesionUsuarioAdministradorBean.materias}" var="mat">
+        <h:dataTable value="#{AdministradorBean.materias}" var="mat">
             <h:column>    				
                <f:facet name="header">Nombre</f:facet>    				
                #{mat.nombre}
@@ -25,6 +26,17 @@
             <h:column>
                <f:facet name="header">Cantidad</f:facet>
                #{mat.cantidadDisponible}
+            </h:column>
+        </h:dataTable>
+        
+        <h:dataTable value="#{AdministradorBean.empleados}" var="emp">
+            <h:column>    				
+               <f:facet name="header">Nombre</f:facet>    				
+               #{emp.nombre}
+            </h:column>
+            <h:column>
+               <f:facet name="header">Cantidad</f:facet>
+               #{emp.rol}
             </h:column>
         </h:dataTable>
         

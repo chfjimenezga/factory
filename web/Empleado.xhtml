@@ -9,15 +9,15 @@
     <h:body>
         <h4>EMPLEADO</h4>
         <h:outputLabel value="Ingreso con el usuario: "/>
-        <h:outputText value="#{SesionUsuarioEmpleadoBean.id_usuario}"/>
+        <h:outputText value="#{EmpleadoBean.id_usuario}"/>
         <h:form>
-            <h:commandButton action="#{SesionUsuarioEmpleadoBean.logout}" value="cerrar session" />
-            <h:commandButton action="#{SesionUsuarioAdministradorBean.buscaMateria()}" value="Buscar Materias"/>
+            <h:commandButton action="#{EmpleadoBean.logout}" value="cerrar session" />
+            <h:commandButton action="#{EmpleadoBean.buscaMateria()}" value="Buscar Materias"/>
         </h:form>
         <br/>
         <br/>
         
-        <h:dataTable value="#{SesionUsuarioAdministradorBean.materias}" var="mat">
+        <h:dataTable value="#{EmpleadoBean.materias}" var="mat">
             <h:column>    				
                <f:facet name="header">Nombre</f:facet>    				
                #{mat.nombre}

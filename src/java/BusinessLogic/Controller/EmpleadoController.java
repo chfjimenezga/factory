@@ -13,9 +13,9 @@ import DataAccess.DAO.*;
 import DataAccess.Entity.*;
 import java.util.ArrayList;
 
-public class EmpleadorController {
+public class EmpleadoController {
     
-    public Materia listaMateria(int id_materia){
+    public Materia materia(int id_materia){
         MateriaDAO materiaDAO = new MateriaDAO();
         Materia materia = materiaDAO.buscarIdMateria(id_materia);
         return materia;        
@@ -27,6 +27,13 @@ public class EmpleadorController {
         return true;
         }
         return false;
+    }
+    
+    public ArrayList<Materia> listarMaterias(){
+        MateriaDAO materiaDAO = new MateriaDAO();
+        
+        return materiaDAO.listarMateria();
+        
     }
     
 }

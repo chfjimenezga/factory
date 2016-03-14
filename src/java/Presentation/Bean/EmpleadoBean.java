@@ -5,7 +5,7 @@
  */
 package Presentation.Bean;
 
-import BusinessLogic.Controller.AdministradorController;
+import BusinessLogic.Controller.EmpleadoController;
 import DataAccess.Entity.Materia;
 import java.util.ArrayList;
 import javax.faces.application.FacesMessage;
@@ -18,9 +18,9 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author Usuario
  */
-@ManagedBean(name = "SesionUsuarioEmpleadoBean")
+@ManagedBean(name = "EmpleadoBean")
 @RequestScoped
-public class SesionUsuarioEmpleadoBean {
+public class EmpleadoBean {
         
     private String id_usuario;
     private final HttpServletRequest httpServletRequest;
@@ -28,12 +28,13 @@ public class SesionUsuarioEmpleadoBean {
     private FacesMessage facesMessage;
     private static ArrayList<Materia> materias = new ArrayList<Materia>();
     
-    public SesionUsuarioEmpleadoBean(){
+    public EmpleadoBean(){
         faceContext=FacesContext.getCurrentInstance();
         httpServletRequest=(HttpServletRequest)faceContext.getExternalContext().getRequest();
         if(httpServletRequest.getSession().getAttribute("sessionUsuario")!=null)
         {
             id_usuario=httpServletRequest.getSession().getAttribute("sessionUsuario").toString();
+            materias = new ArrayList<Materia>();
         }
     }
     
@@ -60,17 +61,11 @@ public class SesionUsuarioEmpleadoBean {
     }
     
     public void buscaMateria(){
-        AdministradorController administradorController = new AdministradorController();
+        EmpleadoController empleadoController = new EmpleadoController();
         
-        Materia materia = new  Materia();
         materias = new ArrayList<Materia>();
-        
-        int i=1;
-        while(administradorController.existeMateria(i)){
-            materia = administradorController.listaMateria(i);
-            materias.add(materia);
-            i++;
-        }
+        System.out.println("DA CLICK A BEAN");
+        materias = empleadoController.listarMaterias();
         
     }
 }

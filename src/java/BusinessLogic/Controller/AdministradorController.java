@@ -12,10 +12,12 @@ package BusinessLogic.Controller;
 import DataAccess.DAO.*;
 import DataAccess.Entity.*;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class AdministradorController {
     
-    public Materia listaMateria(int id_materia){
+    public Materia materia(int id_materia){
         MateriaDAO materiaDAO = new MateriaDAO();
         Materia materia = materiaDAO.buscarIdMateria(id_materia);
         return materia;        
@@ -27,5 +29,15 @@ public class AdministradorController {
         return true;
         }
         return false;
+    }
+    
+    public ArrayList<Materia> todasMaterias(){
+        MateriaDAO materiaDAO = new MateriaDAO();
+        return materiaDAO.listarMateria();
+    }
+    
+    public ArrayList<Usuario> empleados(){
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        return usuarioDAO.empleados("Empleado");
     }
 }

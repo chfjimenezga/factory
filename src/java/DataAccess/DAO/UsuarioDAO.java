@@ -7,10 +7,13 @@ package DataAccess.DAO;
 
 import DataAccess.Entity.Usuario;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -33,6 +36,26 @@ public class UsuarioDAO {
         } finally {
             em.close();
             return usuario;  
+        }
+    }
+    
+    public ArrayList<Usuario> empleados(String rol) {
+        ArrayList<Usuario> empleados = new ArrayList<Usuario>();
+        EntityManager em = emf1.createEntityManager();
+        //Query q = em.createNamedQuery("Materia.findAll");
+        TypedQuery q = (TypedQuery) em.createNamedQuery("Usuario.findByRol");
+        q.setParameter("rol",rol);
+        
+        try {
+            List<Usuario> m=q.getResultList();
+            
+            for (Usuario c : m) {
+                empleados.add((Usuario)c);
+            }
+        } catch (Exception e){
+            System.out.println(e.toString());
+        } finally {
+            return empleados;
         }
     }
     

@@ -7,11 +7,15 @@ package DataAccess.DAO;
 
 import DataAccess.Entity.Materia;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.Vector;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 /**
  *
  * @author Usuario
@@ -33,6 +37,29 @@ public class MateriaDAO {
         } finally {
             em.close();
             return materia;  
+        }
+    }
+    
+    public ArrayList<Materia> listarMateria() {
+        ArrayList<Materia> materias = new ArrayList<Materia>();
+        EntityManager em = emf1.createEntityManager();
+        //Query q = em.createNamedQuery("Materia.findAll");
+        TypedQuery q = (TypedQuery) em.createNamedQuery("Materia.findAll");
+        
+        try {
+            List<Materia> m=q.getResultList();
+            
+            System.out.println("Tamanio: "+m.size());
+            
+            for (Materia c : m) {
+                System.out.println("A");
+                System.out.println(c.getNombre()+" "+c.getCantidadDisponible());
+                materias.add((Materia)c);
+            }
+        } catch (Exception e){
+            System.out.println(e.toString());
+        } finally {
+            return materias;
         }
     }
     
