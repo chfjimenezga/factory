@@ -13,14 +13,14 @@
                     <label>Ingrese su cuenta Id:</label>
                     <h:inputText value="#{LoginBean.id_usuario}" required="true" requiredMessage="Campo requerido"/>
                     <label>Ingrese su contraseña:</label>
-                    <h:inputText value="#{LoginBean.contrasena}" required="true" requiredMessage="Campo requerido"/>
+                    <h:inputSecret value="#{LoginBean.contrasena}" required="true" requiredMessage="Campo requerido"/>
                 </h:panelGrid>
                 <br/>
                 <label>Mensaje: </label>
                 <h:outputText value="#{LoginBean.mensaje}"/>
                 <br/>
                 <br/>
-                <h:commandButton action="#{LoginBean.login()}" value="login"/>                
+                <h:commandButton action="#{LoginBean.login}" value="login" />                
             </h:form>
         </panel>
     </h:body>

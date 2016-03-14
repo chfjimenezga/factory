@@ -51,6 +51,21 @@ public class UsuarioDAO {
         }
     }
     
+    public Usuario buscarNombreUsuario(String nombre_usuario) {
+        
+        EntityManager em = emf1.createEntityManager();
+        Usuario usuario = null;
+        
+        try {
+            usuario = em.find(Usuario.class
+                    , nombre_usuario);
+        } catch (Exception e){
+        } finally {
+            em.close();
+            return usuario;
+        }
+    }
+    
     
     public void editar(Usuario usuario){
         Usuario nuevoUsuario;
