@@ -5,7 +5,11 @@
  */
 package Presentation.Bean;
 
+import BusinessLogic.Controller.AdministradorController;
 import BusinessLogic.Controller.LoginUsuario;
+import DataAccess.Entity.Materia;
+import java.util.ArrayList;
+import java.util.Collection;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -24,6 +28,7 @@ public class SesionUsuarioAdministradorBean {
     private final HttpServletRequest httpServletRequest;
     private final FacesContext faceContext;
     private FacesMessage facesMessage;
+    private static ArrayList<Materia> materias = new ArrayList<Materia>();
     
     public SesionUsuarioAdministradorBean(){
         faceContext=FacesContext.getCurrentInstance();
@@ -52,13 +57,34 @@ public class SesionUsuarioAdministradorBean {
     public void setNombre_usuario(String nombre_usuario) {
         this.nombre_usuario = nombre_usuario;
     }
+
+    
+    public ArrayList<Materia> getMaterias() {
+      return materias;
+   }
     
     public String logout()
     {
         httpServletRequest.getSession().removeAttribute("sessionUsuario");
         facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO, "Session cerrada correctamente", null);
         faceContext.addMessage(null, facesMessage);
+        materias = new ArrayList<Materia>();
         return "index";
+    }
+    
+    public void buscaMateria(){
+        AdministradorController administradorController = new AdministradorController();
+        
+        Materia materia = new  Materia();
+        materias = new ArrayList<Materia>();
+        
+        int i=1;
+        while(administradorController.existeMateria(i)){
+            materia = administradorController.listaMateria(i);
+            materias.add(materia);
+            i++;
+        }
+        
     }
     
 }

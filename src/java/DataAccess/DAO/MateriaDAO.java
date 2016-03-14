@@ -7,6 +7,7 @@ package DataAccess.DAO;
 
 import DataAccess.Entity.Materia;
 import java.math.BigInteger;
+import java.util.Collection;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
