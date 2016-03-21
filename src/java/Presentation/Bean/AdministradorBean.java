@@ -40,6 +40,7 @@ public class AdministradorBean {
             LoginUsuario loginUsuario = new LoginUsuario();
             nombre_usuario = loginUsuario.nombre(id_usuario);
             materias = new ArrayList<Materia>();
+            empleados = new ArrayList<Usuario>();
         }
     }
     
@@ -75,7 +76,7 @@ public class AdministradorBean {
         facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO, "Session cerrada correctamente", null);
         faceContext.addMessage(null, facesMessage);
         materias = new ArrayList<Materia>();
-        System.out.println("CARAJO");
+        empleados = new ArrayList<Usuario>();
         return "index";
     }
     /*
@@ -97,7 +98,6 @@ public class AdministradorBean {
         AdministradorController administradorController = new AdministradorController();
         
         materias = new ArrayList<Materia>();
-        System.out.println("DA CLICK A BEAN");
         materias = administradorController.todasMaterias();
         
     }
