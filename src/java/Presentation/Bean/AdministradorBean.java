@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 /**
@@ -20,7 +22,9 @@ import javax.servlet.http.HttpServletRequest;
  * @author Usuario
  */
 @ManagedBean(name = "AdministradorBean")
-@RequestScoped
+//@RequestScoped
+//@ViewScoped
+@SessionScoped
 public class AdministradorBean {
     
     private String id_usuario;
@@ -30,7 +34,10 @@ public class AdministradorBean {
     private FacesMessage facesMessage;
     private static ArrayList<Materia> materias = new ArrayList<Materia>();
     private static ArrayList<Usuario> empleados = new ArrayList<Usuario>();
-    
+    private String empleadoID;
+    private String empleadoNombre;
+    private String empleadoContrasenia;
+            
     public AdministradorBean(){
         faceContext=FacesContext.getCurrentInstance();
         httpServletRequest=(HttpServletRequest)faceContext.getExternalContext().getRequest();
@@ -41,6 +48,9 @@ public class AdministradorBean {
             nombre_usuario = loginUsuario.nombre(id_usuario);
             materias = new ArrayList<Materia>();
             empleados = new ArrayList<Usuario>();
+            empleadoID = "";
+            empleadoNombre = "";
+            empleadoContrasenia = "";
         }
     }
     
@@ -69,7 +79,33 @@ public class AdministradorBean {
     public ArrayList<Usuario> getEmpleados() {
       return empleados;
    }
-       
+    
+    
+    public String getEmpleadoID() {
+        return empleadoID;
+    }
+
+    public void setEmpleadoID(String empleadoID) {
+        this.empleadoID = empleadoID;
+    }
+
+    public String getEmpleadoNombre() {
+        return empleadoNombre;
+    }
+
+    public void setEmpleadoNombre(String empleadoNombre) {
+        this.empleadoNombre = empleadoNombre;
+    }
+
+    public String getEmpleadoContrasenia() {
+        return empleadoContrasenia;
+    }
+
+    public void setEmpleadoContrasenia(String empleadoContrasenia) {
+        this.empleadoContrasenia = empleadoContrasenia;
+    }
+    
+       /*
     public String logout()
     {
         httpServletRequest.getSession().removeAttribute("sessionUsuario");
@@ -78,26 +114,13 @@ public class AdministradorBean {
         materias = new ArrayList<Materia>();
         empleados = new ArrayList<Usuario>();
         return "index";
-    }
-    /*
-    public void buscaMateria(){
-        AdministradorController administradorController = new AdministradorController();
-        
-        Materia materia = new  Materia();
-        materias = new ArrayList<Materia>();
-        
-        int i=1;
-        while(administradorController.existeMateria(i)){
-            materia = administradorController.listaMateria(i);
-            materias.add(materia);
-            i++;
-        }
-        
     }*/
+    
     public void buscaMateria(){
         AdministradorController administradorController = new AdministradorController();
         
         materias = new ArrayList<Materia>();
+        empleados = new ArrayList<Usuario>();
         materias = administradorController.todasMaterias();
         
     }
@@ -105,9 +128,26 @@ public class AdministradorBean {
     public void buscaEmpleados(){
         AdministradorController administradorController = new AdministradorController();
         
+        materias = new ArrayList<Materia>();
         empleados = new ArrayList<Usuario>();
         empleados = administradorController.empleados();
+        //empleadoID = "segundo";
         
+    }
+    
+    public String editarEmpleado(String idUsuario){
+        System.out.println(idUsuario);
+        Usuario empleado = new Usuario();
+        AdministradorController administradorController = new AdministradorController();
+        empleado = administradorController.buscarEmpleado(idUsuario);
+        empleadoID = empleado.getIdUsuario();
+        System.out.println("ID es: "+empleadoID);
+        empleadoNombre = empleado.getNombre();
+        setEmpleadoNombre(empleadoNombre);
+        System.out.println(empleadoNombre);
+        empleadoContrasenia = empleado.getContraseña();
+        
+        return "editarEmpleado";
     }
     
 }

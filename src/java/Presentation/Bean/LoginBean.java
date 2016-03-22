@@ -76,4 +76,12 @@ public class LoginBean {
             return "index";
         }
     }
+    
+    public String logout()
+    {
+        httpServletRequest.getSession().removeAttribute("sessionUsuario");
+        facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO, "Session cerrada correctamente", null);
+        faceContext.addMessage(null, facesMessage);
+        return "index";
+    }
 }

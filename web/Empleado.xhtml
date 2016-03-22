@@ -11,7 +11,7 @@
         <h:outputLabel value="Ingreso con el usuario: "/>
         <h:outputText value="#{EmpleadoBean.id_usuario}"/>
         <h:form>
-            <h:commandButton action="#{EmpleadoBean.logout}" value="cerrar session" />
+            <h:commandButton action="#{LoginBean.logout()}" value="cerrar session" />
             <h:commandButton action="#{EmpleadoBean.buscaMateria()}" value="Buscar Materias"/>
         </h:form>
         <br/>

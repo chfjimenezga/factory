@@ -11,7 +11,7 @@
         <h:outputLabel value="Ingreso con el usuario: "/>
         <h:outputText value="#{AdministradorBean.nombre_usuario}"/>
         <h:form>
-            <h:commandButton action="#{AdministradorBean.logout}" value="cerrar session" />
+            <h:commandButton action="#{LoginBean.logout()}" value="cerrar session" />
             <h:commandButton action="#{AdministradorBean.buscaMateria()}" value="Buscar Materias"/>
             <h:commandButton action="#{AdministradorBean.buscaEmpleados()}" value="Listar Empleados"/>
         </h:form>
@@ -37,6 +37,11 @@
             <h:column>
                <f:facet name="header">Cantidad</f:facet>
                #{emp.rol}
+            </h:column>
+            <h:column>
+                <h:form>
+                    <h:commandButton action="#{AdministradorBean.editarEmpleado(emp.idUsuario)}" value="Modificar Información"/>
+                </h:form>
             </h:column>
         </h:dataTable>
         

@@ -12,8 +12,6 @@ package BusinessLogic.Controller;
 import DataAccess.DAO.*;
 import DataAccess.Entity.*;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 public class AdministradorController {
     
@@ -39,5 +37,10 @@ public class AdministradorController {
     public ArrayList<Usuario> empleados(){
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         return usuarioDAO.empleados("Empleado");
+    }
+    
+    public Usuario buscarEmpleado(String id_usuario){
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        return usuarioDAO.buscarIdUsuario(id_usuario);
     }
 }
