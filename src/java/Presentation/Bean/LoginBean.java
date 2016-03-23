@@ -25,7 +25,6 @@ public class LoginBean {
     private final HttpServletRequest httpServletRequest;
     private final FacesContext faceContext;
     private FacesMessage facesMessage;
-
     
     public LoginBean(){
         mensaje="";
@@ -63,11 +62,8 @@ public class LoginBean {
         
         if (loginUsuario.Login(id_usuario, contrasena)){
             httpServletRequest.getSession().setAttribute("sessionUsuario", id_usuario);
-            System.out.println("El id entrante es:   "+id_usuario);
             facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO, "Acceso Correcto", null);
             faceContext.addMessage(null, facesMessage);
-            
-            
             return loginUsuario.Rol(id_usuario);
         }else{
             FacesMessage fm = new FacesMessage("Error de login, verifique información","ERROR MSG");

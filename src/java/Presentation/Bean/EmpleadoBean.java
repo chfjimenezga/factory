@@ -10,6 +10,7 @@ import DataAccess.Entity.Materia;
 import java.util.ArrayList;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +20,8 @@ import javax.servlet.http.HttpServletRequest;
  * @author Usuario
  */
 @ManagedBean(name = "EmpleadoBean")
-//@RequestScoped
-@SessionScoped
+@RequestScoped
+//@SessionScoped
 public class EmpleadoBean {
         
     private String id_usuario;
@@ -30,6 +31,7 @@ public class EmpleadoBean {
     private static ArrayList<Materia> materias = new ArrayList<Materia>();
     
     public EmpleadoBean(){
+        
         faceContext=FacesContext.getCurrentInstance();
         httpServletRequest=(HttpServletRequest)faceContext.getExternalContext().getRequest();
         id_usuario = "";
@@ -39,8 +41,7 @@ public class EmpleadoBean {
             System.out.println("El id a imprimir es: "+id_usuario);
             materias = new ArrayList<Materia>();
         }
-    }
-    
+    }      
     
     public String getId_usuario() {
         return id_usuario;
@@ -56,11 +57,9 @@ public class EmpleadoBean {
    
     public void buscaMateria(){
         EmpleadoController empleadoController = new EmpleadoController();
-        
         materias = new ArrayList<Materia>();
         System.out.println("DA CLICK A BEAN");
         materias = empleadoController.listarMaterias();
-        
     }
     
     public String logout(){
@@ -68,4 +67,5 @@ public class EmpleadoBean {
         LoginBean loginBean = new LoginBean();
         return loginBean.logout();
     }
+    
 }

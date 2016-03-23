@@ -23,8 +23,8 @@ import javax.servlet.http.HttpServletRequest;
  */
 @ManagedBean(name = "AdministradorBean")
 //@RequestScoped
-//@ViewScoped
-@SessionScoped
+@ViewScoped
+//@SessionScoped
 public class AdministradorBean {
     
     private String id_usuario;
@@ -133,7 +133,7 @@ public class AdministradorBean {
         
     }
     
-    public String editarEmpleado(String idUsuario){
+    public void editarEmpleado(String idUsuario){
         System.out.println(idUsuario);
         Usuario empleado = new Usuario();
         AdministradorController administradorController = new AdministradorController();
@@ -143,7 +143,7 @@ public class AdministradorBean {
         setEmpleadoNombre(empleadoNombre);
         empleadoContrasenia = empleado.getContraseña();
         iniciarTablas();
-        return "editarEmpleado";
+        //return "editarEmpleado";
     }
     
     public String salvarEmpleado(){
@@ -156,6 +156,18 @@ public class AdministradorBean {
     public void iniciarTablas(){
         materias = new ArrayList<Materia>();
         empleados = new ArrayList<Usuario>();
+    }
+    
+    public String eliminarEmpleado(String idUsuario){
+        AdministradorController administradorController = new AdministradorController();
+        administradorController.eliminarEmpleado(idUsuario);
+        return "Administrador";
+    }
+    
+    public String insertarEmpleado(){
+        AdministradorController administradorController = new AdministradorController();
+        administradorController.insertarEmpleado(empleadoID, empleadoNombre, empleadoContrasenia);
+        return "Administrador";
     }
     
 }

@@ -50,4 +50,16 @@ public class AdministradorController {
         usuarioDAO.editar(empleado);
         return true;
     }
+    
+    public void eliminarEmpleado(String id_usuario){
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        usuarioDAO.eliminarUsuario(id_usuario);
+    }
+    
+    public void insertarEmpleado(String id_usuario, String nombre_usuario, String contraseña){
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        Usuario usuario = new Usuario();
+        Usuario newUsuario = new Usuario(id_usuario,nombre_usuario,contraseña,"Empleado");
+        usuario = usuarioDAO.persist(newUsuario);
+    }
 }

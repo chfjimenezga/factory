@@ -35,7 +35,7 @@
                #{emp.nombre}
             </h:column>
             <h:column>
-               <f:facet name="header">Cantidad</f:facet>
+               <f:facet name="header">ROl</f:facet>
                #{emp.rol}
             </h:column>
             <h:column>
@@ -43,8 +43,36 @@
                     <h:commandButton action="#{AdministradorBean.editarEmpleado(emp.idUsuario)}" value="Modificar Información"/>
                 </h:form>
             </h:column>
+            <h:column>
+                <h:form>
+                    <h:commandButton action="#{AdministradorBean.eliminarEmpleado(emp.idUsuario)}" value="Eliminar"/>
+                </h:form>
+            </h:column>
         </h:dataTable>
         
+        <h:form>
+            <h3>Edicion datos empleado</h3>
+            <label>Id del empleado:</label>
+            <h:outputText value="#{AdministradorBean.empleadoID}"/><br/>
+            <label>Nombre del empleado:</label>
+            <h:inputText value="#{AdministradorBean.empleadoNombre}"/><br/>
+            <label>Contraseña del empleado:</label>
+            <h:inputText value="#{AdministradorBean.empleadoContrasenia}"/><br/>
+            <h:commandButton action="#{AdministradorBean.salvarEmpleado()}" value="Modificar"/>
+            <h:commandButton action="Administrador" value="Volver"/>
+        </h:form>
+        
+        <h:form>
+            <h3>Nuevo empleado</h3>
+            <label>Id del empleado:</label>
+            <h:inputText value="#{AdministradorBean.empleadoID}"/><br/>
+            <label>Nombre del empleado:</label>
+            <h:inputText value="#{AdministradorBean.empleadoNombre}"/><br/>
+            <label>Contraseña del empleado:</label>
+            <h:inputText value="#{AdministradorBean.empleadoContrasenia}"/><br/>
+            <h:commandButton action="#{AdministradorBean.insertarEmpleado()}" value="Guardar"/>
+            <h:commandButton action="Administrador" value="Volver"/>
+        </h:form>
         
         <h:messages infoStyle="color: blue;list-style:none;"/>
     </h:body>
