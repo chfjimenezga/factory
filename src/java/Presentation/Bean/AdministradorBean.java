@@ -119,8 +119,7 @@ public class AdministradorBean {
     public void buscaMateria(){
         AdministradorController administradorController = new AdministradorController();
         
-        materias = new ArrayList<Materia>();
-        empleados = new ArrayList<Usuario>();
+        iniciarTablas();
         materias = administradorController.todasMaterias();
         
     }
@@ -128,8 +127,7 @@ public class AdministradorBean {
     public void buscaEmpleados(){
         AdministradorController administradorController = new AdministradorController();
         
-        materias = new ArrayList<Materia>();
-        empleados = new ArrayList<Usuario>();
+        iniciarTablas();
         empleados = administradorController.empleados();
         //empleadoID = "segundo";
         
@@ -141,13 +139,23 @@ public class AdministradorBean {
         AdministradorController administradorController = new AdministradorController();
         empleado = administradorController.buscarEmpleado(idUsuario);
         empleadoID = empleado.getIdUsuario();
-        System.out.println("ID es: "+empleadoID);
         empleadoNombre = empleado.getNombre();
         setEmpleadoNombre(empleadoNombre);
-        System.out.println(empleadoNombre);
         empleadoContrasenia = empleado.getContraseña();
-        
+        iniciarTablas();
         return "editarEmpleado";
+    }
+    
+    public String salvarEmpleado(){
+        AdministradorController administradorController = new AdministradorController();
+        administradorController.editarEmpleado(empleadoID, empleadoNombre, empleadoContrasenia);
+        iniciarTablas();
+        return "Administrador";
+    }
+    
+    public void iniciarTablas(){
+        materias = new ArrayList<Materia>();
+        empleados = new ArrayList<Usuario>();
     }
     
 }

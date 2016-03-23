@@ -10,7 +10,6 @@ import DataAccess.Entity.Materia;
 import java.util.ArrayList;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
@@ -33,9 +32,11 @@ public class EmpleadoBean {
     public EmpleadoBean(){
         faceContext=FacesContext.getCurrentInstance();
         httpServletRequest=(HttpServletRequest)faceContext.getExternalContext().getRequest();
+        id_usuario = "";
         if(httpServletRequest.getSession().getAttribute("sessionUsuario")!=null)
         {
             id_usuario=httpServletRequest.getSession().getAttribute("sessionUsuario").toString();
+            System.out.println("El id a imprimir es: "+id_usuario);
             materias = new ArrayList<Materia>();
         }
     }
@@ -52,16 +53,7 @@ public class EmpleadoBean {
     public ArrayList<Materia> getMaterias() {
       return materias;
    }
-    
-    public String logout()
-    {
-        httpServletRequest.getSession().removeAttribute("sessionUsuario");
-        facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO, "Session cerrada correctamente", null);
-        faceContext.addMessage(null, facesMessage);
-        materias = new ArrayList<Materia>();
-        return "index";
-    }
-    
+   
     public void buscaMateria(){
         EmpleadoController empleadoController = new EmpleadoController();
         
@@ -69,5 +61,11 @@ public class EmpleadoBean {
         System.out.println("DA CLICK A BEAN");
         materias = empleadoController.listarMaterias();
         
+    }
+    
+    public String logout(){
+        materias = new ArrayList<Materia>();
+        LoginBean loginBean = new LoginBean();
+        return loginBean.logout();
     }
 }

@@ -43,4 +43,11 @@ public class AdministradorController {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         return usuarioDAO.buscarIdUsuario(id_usuario);
     }
+    
+    public boolean editarEmpleado(String id_empleado, String nombre_empleado,String contraseña_empleado){
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        Usuario empleado = new Usuario(id_empleado,nombre_empleado,contraseña_empleado,"Empleado");
+        usuarioDAO.editar(empleado);
+        return true;
+    }
 }

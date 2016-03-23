@@ -6,14 +6,11 @@
 package Presentation.Bean;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 import BusinessLogic.Controller.LoginUsuario;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -66,8 +63,11 @@ public class LoginBean {
         
         if (loginUsuario.Login(id_usuario, contrasena)){
             httpServletRequest.getSession().setAttribute("sessionUsuario", id_usuario);
+            System.out.println("El id entrante es:   "+id_usuario);
             facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO, "Acceso Correcto", null);
             faceContext.addMessage(null, facesMessage);
+            
+            
             return loginUsuario.Rol(id_usuario);
         }else{
             FacesMessage fm = new FacesMessage("Error de login, verifique información","ERROR MSG");
