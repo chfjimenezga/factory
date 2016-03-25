@@ -5,57 +5,59 @@
  */
 package DataAccess.DAO;
 
-import DataAccess.Entity.Sesion;
+
+import DataAccess.Entity.UsuarioModificaPedido;
+import DataAccess.Entity.UsuarioModificaPedidoPK;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
 /**
  *
  * @author Usuario
  */
-public class SesionDAO {
-    
-    
+public class UsuarioModificaPedidoDAO {
     public EntityManagerFactory emf1 = Persistence.createEntityManagerFactory("factoryPU");
     
-    public Sesion persist(Sesion sesion) {
+    public UsuarioModificaPedido persist(UsuarioModificaPedido usuarioModificaPedido) {
         
         EntityManager em = emf1.createEntityManager();
         em.getTransaction().begin();
         
         try {
-            em.persist(sesion);
+            em.persist(usuarioModificaPedido);
             em.getTransaction().commit();
         } catch(Exception e) {
             em.getTransaction().rollback();
         } finally {
             em.close();
-            return sesion;  
+            return usuarioModificaPedido;  
         }
     }
     
-    public Sesion buscarIdSesion(int id_sesion) {
+    public UsuarioModificaPedido buscarIdSesion(UsuarioModificaPedidoPK usuarioModificaPedidoPK) {
         
         EntityManager em = emf1.createEntityManager();
-        Sesion sesion = null;
+        UsuarioModificaPedido usuarioModificaPedido = null;
         
         try {
-            sesion = em.find(Sesion.class
-                    , id_sesion);
+            usuarioModificaPedido = em.find(UsuarioModificaPedido.class
+                    , usuarioModificaPedidoPK);
         } catch (Exception e){
         } finally {
             em.close();
-            return sesion;
+            return usuarioModificaPedido;
         }
     }
     
-    public void edit(Sesion sesion){
-        Sesion nuevaSesion;
+    public void edit(UsuarioModificaPedido usuarioModificaPedido){
+        UsuarioModificaPedido nuevoUsuarioModificaPedido;
         EntityManager em = emf1.createEntityManager();  
         em.getTransaction().begin();
         try {
-           nuevaSesion = em.merge(em.find(Sesion.class, sesion.getIdSesion())); 
-           nuevaSesion.setFechaInicio(sesion.getFechaInicio());
+           nuevoUsuarioModificaPedido = em.merge(em.find(UsuarioModificaPedido.class, usuarioModificaPedido.getAccion())); 
+           nuevoUsuarioModificaPedido.setPedido(usuarioModificaPedido.getPedido());
+           nuevoUsuarioModificaPedido.setUsuario(usuarioModificaPedido.getUsuario());
             em.getTransaction().commit();
         } catch (Exception e){
             em.getTransaction().rollback();
@@ -63,5 +65,4 @@ public class SesionDAO {
             em.close();
         }
     }
-    
 }

@@ -6,8 +6,10 @@
 package DataAccess.Entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,12 +17,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -36,6 +40,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Pedido.findByCantidad", query = "SELECT p FROM Pedido p WHERE p.cantidad = :cantidad"),
     @NamedQuery(name = "Pedido.findByEstado", query = "SELECT p FROM Pedido p WHERE p.estado = :estado")})
 public class Pedido implements Serializable {
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pedido")
+    private Collection<UsuarioModificaPedido> usuarioModificaPedidoCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -138,6 +145,15 @@ public class Pedido implements Serializable {
     @Override
     public String toString() {
         return "DataAccess.Entity.Pedido[ idPedido=" + idPedido + " ]";
+    }
+
+    @XmlTransient
+    public Collection<UsuarioModificaPedido> getUsuarioModificaPedidoCollection() {
+        return usuarioModificaPedidoCollection;
+    }
+
+    public void setUsuarioModificaPedidoCollection(Collection<UsuarioModificaPedido> usuarioModificaPedidoCollection) {
+        this.usuarioModificaPedidoCollection = usuarioModificaPedidoCollection;
     }
     
 }
