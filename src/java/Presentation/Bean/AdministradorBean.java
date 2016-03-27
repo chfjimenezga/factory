@@ -12,8 +12,6 @@ import DataAccess.Entity.Usuario;
 import java.util.ArrayList;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +27,11 @@ public class AdministradorBean {
     
     private String id_usuario;
     private String nombre_usuario;
+    private int materiaID;
+    private String materiaNombre;
+    private String materiaDescripcion;
+    private String materiaUnidad;
+    private int materiaCantidad;
     private final HttpServletRequest httpServletRequest;
     private final FacesContext faceContext;
     private FacesMessage facesMessage;
@@ -104,6 +107,47 @@ public class AdministradorBean {
     public void setEmpleadoContrasenia(String empleadoContrasenia) {
         this.empleadoContrasenia = empleadoContrasenia;
     }
+
+    public int getMateriaID() {
+        return materiaID;
+    }
+
+    public void setMateriaID(int materiaID) {
+        this.materiaID = materiaID;
+    }
+
+    public String getMateriaNombre() {
+        return materiaNombre;
+    }
+
+    public void setMateriaNombre(String materiaNombre) {
+        this.materiaNombre = materiaNombre;
+    }
+
+    public String getMateriaDescripcion() {
+        return materiaDescripcion;
+    }
+
+    public void setMateriaDescripcion(String materiaDescripcion) {
+        this.materiaDescripcion = materiaDescripcion;
+    }
+
+    public String getMateriaUnidad() {
+        return materiaUnidad;
+    }
+
+    public void setMateriaUnidad(String materiaUnidad) {
+        this.materiaUnidad = materiaUnidad;
+    }
+
+    public int getMateriaCantidad() {
+        return materiaCantidad;
+    }
+
+    public void setMateriaCantidad(int materiaCantidad) {
+        this.materiaCantidad = materiaCantidad;
+    }
+    
     
        /*
     public String logout()
@@ -167,6 +211,37 @@ public class AdministradorBean {
     public String insertarEmpleado(){
         AdministradorController administradorController = new AdministradorController();
         administradorController.insertarEmpleado(empleadoID, empleadoNombre, empleadoContrasenia);
+        return "Administrador";
+    }
+    
+    public void editarMateria(int idMateria){
+        Materia materia = new Materia();
+        AdministradorController administradorController = new AdministradorController();
+        materia = administradorController.buscarMateria(idMateria);
+        materiaID = materia.getIdMateria();
+        materiaNombre = materia.getNombre();
+        materiaDescripcion = materia.getDescripcion();
+        materiaUnidad = materia.getUnidadDeMedida();
+        materiaCantidad = materia.getCantidadDisponible();
+        iniciarTablas();
+    }
+    
+    public String salvarMateria(){
+        AdministradorController administradorController = new AdministradorController();
+        administradorController.editarMateria(materiaID, materiaNombre, materiaCantidad, materiaDescripcion, materiaUnidad);
+        iniciarTablas();
+        return "Administrador";
+    }
+    
+    public String insertarMateria(){
+        AdministradorController administradorController = new AdministradorController();
+        administradorController.insertarMateria(materiaID, materiaNombre, materiaCantidad, materiaDescripcion,materiaUnidad);
+        return "Administrador";
+    }
+    
+    public String eliminarMateria(Integer idMateria){
+        AdministradorController administradorController = new AdministradorController();
+        administradorController.eliminarMateria(idMateria);
         return "Administrador";
     }
     

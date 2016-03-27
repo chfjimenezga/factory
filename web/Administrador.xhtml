@@ -24,8 +24,22 @@
                #{mat.nombre}
             </h:column>
             <h:column>
-               <f:facet name="header">Cantidad</f:facet>
+               <f:facet name="header">Cantidad Disponible</f:facet>
                #{mat.cantidadDisponible}
+            </h:column>
+            <h:column>
+               <f:facet name="header">Descripción</f:facet>
+               #{mat.descripcion}
+            </h:column>
+            <h:column>
+                <h:form>
+                    <h:commandButton action="#{AdministradorBean.editarMateria(mat.idMateria)}" value="Editar"/>
+                </h:form>
+            </h:column>
+            <h:column>
+                <h:form>
+                    <h:commandButton action="#{AdministradorBean.eliminarMateria(mat.idMateria)}" value="Eliminar"/>
+                </h:form>
             </h:column>
         </h:dataTable>
         
@@ -71,6 +85,39 @@
             <label>Contraseña del empleado:</label>
             <h:inputText value="#{AdministradorBean.empleadoContrasenia}"/><br/>
             <h:commandButton action="#{AdministradorBean.insertarEmpleado()}" value="Guardar"/>
+            <h:commandButton action="Administrador" value="Volver"/>
+        </h:form>
+        
+        
+        <h:form>
+            <h3>Edicion información materia</h3>
+            <label>Identificador de la materia:</label>
+            <h:outputText value="#{AdministradorBean.materiaID}"/><br/>
+            <label>Nombre de la materia:</label>
+            <h:inputText value="#{AdministradorBean.materiaNombre}"/><br/>
+            <label>Cantidad disponible:</label>
+            <h:inputText value="#{AdministradorBean.materiaCantidad}"/><br/>
+            <label>Unidad de medida:</label>
+            <h:inputText value="#{AdministradorBean.materiaUnidad}"/><br/>
+            <label>Descripcion:</label>
+            <h:inputText value="#{AdministradorBean.materiaDescripcion}"/><br/>
+            <h:commandButton action="#{AdministradorBean.salvarMateria()}" value="Modificar"/>
+            <h:commandButton action="Administrador" value="Volver"/>
+        </h:form>
+        
+        <h:form>
+            <h3>Nueva Materia</h3>
+            <label>Identificador de la materia:</label>
+            <h:inputText value="#{AdministradorBean.materiaID}"/><br/>
+            <label>Nombre de la materia:</label>
+            <h:inputText value="#{AdministradorBean.materiaNombre}"/><br/>
+            <label>Cantidad disponible de la materia:</label>
+            <h:inputText value="#{AdministradorBean.materiaCantidad}"/><br/>
+            <label>Unidad de medida:</label>
+            <h:inputText value="#{AdministradorBean.materiaUnidad}"/><br/>
+            <label>Descripción:</label>
+            <h:inputText value="#{AdministradorBean.materiaDescripcion}"/><br/>
+            <h:commandButton action="#{AdministradorBean.insertarMateria()}" value="Guardar"/>
             <h:commandButton action="Administrador" value="Volver"/>
         </h:form>
         

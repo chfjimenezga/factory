@@ -32,6 +32,7 @@ public class MateriaDAO {
             em.getTransaction().rollback();
         } finally {
             em.close();
+            System.out.println("realmente sirve");
             return materia;  
         }
     }
@@ -74,7 +75,7 @@ public class MateriaDAO {
         }
     }
     
-    public void edit(Materia materia){
+    public void editar(Materia materia){
         Materia nuevaMateria;
         EntityManager em = emf1.createEntityManager();  
         em.getTransaction().begin();
@@ -110,5 +111,20 @@ public class MateriaDAO {
             return success;
         }
     } 
+    
+    public void eliminarMateria(Integer id_materia){
+        EntityManager em = emf1.createEntityManager();
+        Materia materia = null;
+        
+        try {
+            materia = em.find(Materia.class,id_materia);
+            em.getTransaction().begin();
+            em.remove(materia);
+            em.getTransaction().commit();
+        } catch (Exception e){
+        } finally {
+            em.close();
+        }
+    }
     
 }

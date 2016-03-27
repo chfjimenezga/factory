@@ -62,4 +62,34 @@ public class AdministradorController {
         Usuario newUsuario = new Usuario(id_usuario,nombre_usuario,contraseña,"Empleado");
         usuario = usuarioDAO.persist(newUsuario);
     }
+    
+    public Materia buscarMateria(int id_materia){
+        MateriaDAO materiaDAO = new MateriaDAO();
+        return materiaDAO.buscarIdMateria(id_materia);
+    }
+    
+    public boolean editarMateria(int id_materia, String nombre_materia, int cantidad_materia ,String descripcion_materia, String unidad_materia){
+        MateriaDAO materiaDAO = new MateriaDAO();
+        Materia materia = new Materia(id_materia, nombre_materia, cantidad_materia, unidad_materia);
+        materia.setDescripcion(descripcion_materia);
+        materiaDAO.editar(materia);
+        return true;
+    }
+    
+    public void insertarMateria(Integer id_materia, String nombre_materia, int cantidad_materia ,String descripcion_materia, String unidad_materia){
+        MateriaDAO materiaDAO = new MateriaDAO();
+        Materia materia = new Materia();
+        Materia newMateria = new Materia(id_materia, nombre_materia, cantidad_materia, unidad_materia);
+        //newMateria.setDescripcion(descripcion_materia);
+        materia = materiaDAO.persist(newMateria);
+        materia.setDescripcion(descripcion_materia);
+        materiaDAO.editar(materia);
+        System.out.println("SIRVE INSERTAR MATERIA");
+    }
+    
+    public void eliminarMateria(Integer id_materia){
+        MateriaDAO materiaDAO = new MateriaDAO();
+        materiaDAO.eliminarMateria(id_materia);
+    }
+    
 }
