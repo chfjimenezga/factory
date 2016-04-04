@@ -2,67 +2,290 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core" lang="en"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Administrador</title>
+        <title>Administrador - Inicio</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="css/uikit.almost-flat.min.css" />
+	<link rel="stylesheet" href="css/components/sticky.almost-flat.min.css" />
+	<link rel="stylesheet" href="css/components/slideshow.almost-flat.min.css" />
+	<link rel="stylesheet" href="css/components/slidenav.almost-flat.min.css" />
+	<link rel="stylesheet" href="css/components/dotnav.almost-flat.min.css" />
+	<link rel="stylesheet" href="css/components/slider.min.css" />
+	<link rel="stylesheet" href="css/adiciones/estilonav.css" />
+        <link rel="stylesheet" href="css/adiciones/subslider.css" />
+        
+        <script>
+            function change()
+            {
+                var elem = document.getElementById("boton");
+                if (elem.value==="Ocultar Tabla") elem.value = "Mostrar Tabla";
+                else elem.value = "Ocultar Tabla";
+            }
+            
+            function changen()
+            {
+                var elem = document.getElementById("botonn");
+                if (elem.value==="Ocultar Tabla") elem.value = "Mostrar Tabla";
+                else elem.value = "Ocultar Tabla";
+            }
+        </script>
+        
+        
+        <script src="js/jquery-2.2.0.min.js"></script>
+        <script src="js/uikit.min.js"></script>
+        <script src="js/components/sticky.min.js"></script>
+        <script src="js/components/slideshow.min.js"></script>
+        <script src="js/components/slideshow-fx.min.js"></script>
+        <script src="js/components/slideset.min.js"></script>
+        <script src="js/components/grid.min.js"></script>
     </h:head>
     <h:body>
-        <h4>ADMINISTRADOR</h4>
-        <h:outputLabel value="Ingreso con el usuario: "/>
-        <h:outputText value="#{AdministradorBean.nombre_usuario}"/>
-        <h:form>
-            <h:commandButton action="#{LoginBean.logout()}" value="cerrar session" />
-            <h:commandButton action="#{AdministradorBean.buscaMateria()}" value="Buscar Materias"/>
-            <h:commandButton action="#{AdministradorBean.buscaEmpleados()}" value="Listar Empleados"/>
-        </h:form>
+        <c:set var="root" value="#{request.contextPath}/faces/" />
+        
+        <nav class="tm-navbar uk-navbar uk-navbar-attached" data-uk-sticky="">
+            <a href="" class="uk-navbar-brand uk-visible-large">
+                <img src="images/logo1.png" width="90" height="30"></img>
+            </a>
+            <ul class="uk-navbar-nav uk-visible-large">
+                <li class="uk-active"><a>Gestión Administrativa</a></li>
+                <li><a href="#{root}AdministradorInstrucciones.xhtml">Ver instrucciones?</a></li>
+         
+                <!--pendiente el menu-->            
+            </ul>
+
+            <a href="#offcanvas" class="uk-navbar-toggle uk-hidden-large" data-uk-offcanvas=""></a>
+            <a href="" class="uk-navbar-brand uk-navbar-center uk-hidden-large"><img src="images/logo1.png" width="90" height="30"></img></a>             
+        </nav>
+
+        <!--menu offcanvas-->
+        <div id="offcanvas" class="uk-offcanvas">
+                <div class="uk-offcanvas-bar">
+                    <ul class="uk-nav uk-nav-offcanvas">
+                        <li class="uk-active"><a>Gestión Administrativa</a></li>
+                        <li><a href="#">Cerrar sesión</a></li>
+                        <!--pendiente el menu-->
+                    </ul>
+                </div>
+            </div>
+        <div  class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+            
+            <div class="uk-grid" data-uk-grid-margin="">
+                <div class="uk-width-1-1 uk-row-fist">
+                    <h2 class="uk-heading-large">Bienvenido <h:outputText value="#{AdministradorBean.nombre_usuario}"/>!</h2>
+                </div>
+            </div>
+            
+        </div>
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+            <h3>¿Qué desea hacer?</h3>
+                    <div class="uk-grid" data-uk-grid-margin="" data-uk-grid-match="{target:'.uk-panel'}">
+                        <div class="uk-width-medium-1-3 uk-row-first">
+                            <div class="uk-panel uk-panel-box">
+                                <h3 class="uk-panel-title">Empleados</h3>
+                                Gestionar empleados.<br></br><br></br>
+                                <div class="uk-button-group uk-align-right">
+                                    <input onclick="change()" class="uk-button uk-button-primary" type="button" value="Mostrar Tabla" action="#{AdministradorBean.buscaEmpleados()}" id="boton" data-uk-toggle="{target:'#usuario', animation: 'uk-animation-slide-top, uk-animation-slide-bottom'}"></input>
+                                    <h:form>
+                                        <h:commandButton class="uk-button" value="Actualizar" action="#{AdministradorBean.buscaEmpleados()}"/>
+                                    </h:form>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="uk-width-medium-1-3 uk-row-first">
+                            <div class="uk-panel uk-panel-box">
+                                <h3 class="uk-panel-title">Materia Prima</h3>
+                                Gestionar materia prima.<br></br><br></br>
+                                <div class="uk-button-group uk-align-right">
+                                    <input onclick="changen()" class="uk-button uk-button-primary" type="button" value="Mostrar Tabla" action="#{AdministradorBean.buscaMateria()}" id="botonn" data-uk-toggle="{target:'#materia', animation: 'uk-animation-slide-top, uk-animation-slide-bottom'}"></input>
+                                    <h:form>
+                                        <h:commandButton class="uk-button" value="Actualizar" action="#{AdministradorBean.buscaMateria()}"/>
+                                    </h:form>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="uk-width-medium-1-3 uk-row-first">
+                            <div class="uk-panel uk-panel-box">
+                                <h3 class="uk-panel-title">Salir</h3>
+                                De click en el botón salir para cerrar sesión.<br></br><br></br>
+                                <div class="uk-text-right">
+                                    <h:form>
+                                    
+                                        <h:commandButton action="#{LoginBean.logout()}" class="uk-button uk-button-primary" value="Cerrar sesión" />
+
+                                    </h:form>
+                                    
+                                </div>
+                                
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+            
+            <div class="uk-grid" data-uk-grid-margin="">
+                <!--TABLA DE USUARIOS-->
+                <div class="uk-width-medium-1-2 uk-row-fist">
+                    <div id="usuario" class="uk-hidden uk-panel uk-panel-box">
+                        <div class="uk-overflow-container">
+                            <h:dataTable class="uk-table uk-table-hover uk-table-striped uk-table-condensed uk-text-nowrap" value="#{AdministradorBean.empleados}" var="emp">
+                                <h:column>    				
+                                   <f:facet name="header">Nombre</f:facet>    				
+                                   #{emp.nombre}
+                                </h:column>
+                                <h:column>
+                                   <f:facet name="header">Rol de Usuario</f:facet>
+                                   #{emp.rol}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Acción</f:facet>
+                                    <h:form>
+                                        <div class="uk-button-group">
+                                            <h:commandButton class="uk-button uk-button-success" action="#{AdministradorBean.editarEmpleado(emp.idUsuario)}" value="Modificar Información"/>
+                                            <h:commandButton class="uk-button uk-button-danger" action="#{AdministradorBean.eliminarEmpleado(emp.idUsuario)}" value="Eliminar"/>
+                                            
+                                        </div>
+                                        
+                                    </h:form>
+                                </h:column>
+                            </h:dataTable>
+                        </div>
+                        <div class="uk-text-right">
+                            <hr class="uk-grid-divider"></hr>
+                            <a href="#adduser" data-uk-modal="" class="uk-button uk-button-primary">Nuevo Usuario</a>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                
+                <!--TABLA DE MATERIALES-->
+                <div class="uk-width-medium-1-2 uk-row-fist">                
+                    <div id="materia" class="uk-hidden uk-panel uk-panel-box">
+                        <div class="uk-overflow-container">
+                            <h:dataTable class="uk-table uk-table-hover uk-table-striped uk-table-condensed uk-text-nowrap" value="#{AdministradorBean.materias}" var="mat">
+                                <h:column>    				
+                                   <f:facet name="header">Nombre</f:facet>    				
+                                   #{mat.nombre}
+                                </h:column>
+                                <h:column>
+                                   <f:facet name="header">Cantidad Disponible</f:facet>
+                                   #{mat.cantidadDisponible}
+                                </h:column>
+                                <h:column>
+                                   <f:facet name="header">Descripción</f:facet>
+                                   #{mat.descripcion}
+                                </h:column>
+                                <h:column>
+                                    <h:form>
+                                        <div class="uk-button-group">
+
+                                                <h:commandButton class="uk-button uk-button-success" action="#{AdministradorBean.editarMateria(mat.idMateria)}" value="Editar"/>
+                                                <h:commandButton class="uk-button uk-button-danger" action="#{AdministradorBean.eliminarMateria(mat.idMateria)}" value="Eliminar"/>
+
+
+                                        </div>
+                                    </h:form>
+                                    
+                                </h:column>
+                            </h:dataTable>
+                        </div>
+                        <div class="uk-text-right">
+                            <hr class="uk-grid-divider"></hr>
+                            <a href="#addmateria" data-uk-modal="" class="uk-button uk-button-primary">Nuevo Material</a>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <!--MODALES ADICION USUARIO Y MATERIAL-->
+                
+                <div id="adduser" class="uk-modal">
+                    <div class="uk-modal-dialog">
+                        <a class="uk-modal-close uk-close"></a>
+		        <div class="uk-modal-header"><h2>Agregar Nuevo Usuario</h2></div>
+                        <div class="uk-overflow-container">
+                            <!--CONTENIDO FORMULARIO LLENADO-->
+                            <h:form class="uk-panel uk-panel-box uk-form">
+                                <div class="uk-form-row">
+                                    <h4><b>Id del empleado:</b></h4><br/>
+                                    <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.empleadoID}"/>
+                                </div>
+                                <div class="uk-form-row">
+                                    <h4><b>Nombre del empleado:</b></h4><br/>
+                                    <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.empleadoNombre}"/>
+                                </div>
+                                <div class="uk-form-row">
+                                    <h4><b>Contraseña:</b></h4><br/>
+                                    <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.empleadoContrasenia}"/>
+                                </div>
+                                <div class="uk-modal-footer uk-text-right">
+                                    <button type="button" class="uk-button uk-modal-close">Cancelar</button>
+                                    <h:commandButton class="uk-button uk-button-primary" action="#{AdministradorBean.insertarEmpleado()}" value="Guardar"/>
+                                </div>
+                            </h:form>
+                            
+		            
+		          </div>
+		        </div>
+		      </div>
+                
+                <div id="addmateria" class="uk-modal">
+                    <div class="uk-modal-dialog">
+                        <a class="uk-modal-close uk-close"></a>
+		        <div class="uk-modal-header"><h2>Agregar Nuevo Material</h2></div>
+                        <div class="uk-overflow-container">
+                            <!--CONTENIDO FORMULARIO LLENADO-->
+                            <h:form class="uk-panel uk-panel-box uk-form">
+                                <div class="uk-form-row">
+                                    <h4><b>Id de material</b></h4><br/>
+                                    <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.materiaID}"/>
+                                </div>
+                                <div class="uk-form-row">
+                                    <h4><b>Nombre de material:</b></h4><br/>
+                                    <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.materiaNombre}"/>
+                                </div>
+                                <div class="uk-form-row">
+                                    <h4><b>Cantidad:</b></h4><br/>
+                                    <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.materiaCantidad}"/>
+                                </div>
+                                <div class="uk-form-row">
+                                    <h4><b>Unidad de Medida:</b></h4><br/>
+                                    <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.materiaUnidad}"/>
+                                </div>
+                                <div class="uk-form-row">
+                                    <h4><b>Descripción:</b></h4><br/>
+                                    <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.materiaDescripcion}"/>
+                                </div>
+                                <div class="uk-modal-footer uk-text-right">
+                                    <button type="button" class="uk-button uk-modal-close">Cancelar</button>
+                                    <h:commandButton class="uk-button uk-button-primary" action="#{AdministradorBean.insertarMateria()}" value="Guardar"/>
+                                </div>
+                            </h:form>
+                            
+		            
+		          </div>
+		        </div>
+		      </div>
+                
+                
+
+            </div>
+        </div>
         <br/>
         <br/>
         
-        <h:dataTable value="#{AdministradorBean.materias}" var="mat">
-            <h:column>    				
-               <f:facet name="header">Nombre</f:facet>    				
-               #{mat.nombre}
-            </h:column>
-            <h:column>
-               <f:facet name="header">Cantidad Disponible</f:facet>
-               #{mat.cantidadDisponible}
-            </h:column>
-            <h:column>
-               <f:facet name="header">Descripción</f:facet>
-               #{mat.descripcion}
-            </h:column>
-            <h:column>
-                <h:form>
-                    <h:commandButton action="#{AdministradorBean.editarMateria(mat.idMateria)}" value="Editar"/>
-                </h:form>
-            </h:column>
-            <h:column>
-                <h:form>
-                    <h:commandButton action="#{AdministradorBean.eliminarMateria(mat.idMateria)}" value="Eliminar"/>
-                </h:form>
-            </h:column>
-        </h:dataTable>
         
-        <h:dataTable value="#{AdministradorBean.empleados}" var="emp">
-            <h:column>    				
-               <f:facet name="header">Nombre</f:facet>    				
-               #{emp.nombre}
-            </h:column>
-            <h:column>
-               <f:facet name="header">ROl</f:facet>
-               #{emp.rol}
-            </h:column>
-            <h:column>
-                <h:form>
-                    <h:commandButton action="#{AdministradorBean.editarEmpleado(emp.idUsuario)}" value="Modificar Información"/>
-                </h:form>
-            </h:column>
-            <h:column>
-                <h:form>
-                    <h:commandButton action="#{AdministradorBean.eliminarEmpleado(emp.idUsuario)}" value="Eliminar"/>
-                </h:form>
-            </h:column>
-        </h:dataTable>
+        
+        
         
         <h:form>
             <h3>Edicion datos empleado</h3>
@@ -76,17 +299,7 @@
             <h:commandButton action="Administrador" value="Volver"/>
         </h:form>
         
-        <h:form>
-            <h3>Nuevo empleado</h3>
-            <label>Id del empleado:</label>
-            <h:inputText value="#{AdministradorBean.empleadoID}"/><br/>
-            <label>Nombre del empleado:</label>
-            <h:inputText value="#{AdministradorBean.empleadoNombre}"/><br/>
-            <label>Contraseña del empleado:</label>
-            <h:inputText value="#{AdministradorBean.empleadoContrasenia}"/><br/>
-            <h:commandButton action="#{AdministradorBean.insertarEmpleado()}" value="Guardar"/>
-            <h:commandButton action="Administrador" value="Volver"/>
-        </h:form>
+        
         
         
         <h:form>
@@ -105,23 +318,7 @@
             <h:commandButton action="Administrador" value="Volver"/>
         </h:form>
         
-        <h:form>
-            <h3>Nueva Materia</h3>
-            <label>Identificador de la materia:</label>
-            <h:inputText value="#{AdministradorBean.materiaID}"/><br/>
-            <label>Nombre de la materia:</label>
-            <h:inputText value="#{AdministradorBean.materiaNombre}"/><br/>
-            <label>Cantidad disponible de la materia:</label>
-            <h:inputText value="#{AdministradorBean.materiaCantidad}"/><br/>
-            <label>Unidad de medida:</label>
-            <h:inputText value="#{AdministradorBean.materiaUnidad}"/><br/>
-            <label>Descripción:</label>
-            <h:inputText value="#{AdministradorBean.materiaDescripcion}"/><br/>
-            <h:commandButton action="#{AdministradorBean.insertarMateria()}" value="Guardar"/>
-            <h:commandButton action="Administrador" value="Volver"/>
-        </h:form>
-        
-        <h:messages infoStyle="color: blue;list-style:none;"/>
+   
     </h:body>
 </html>
 
