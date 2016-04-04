@@ -1,28 +1,92 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html" lang="en" dir="ltr" class="uk-height-1-1 uk-notouch">
     <h:head>
         <title>Login Usuario</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="css/uikit.almost-flat.min.css" />
+	<link rel="stylesheet" href="css/components/sticky.almost-flat.min.css" />
+	<link rel="stylesheet" href="css/adiciones/estilonav.css" />
+        <style type="text/css">
+		html{
+			background-image: url(images/bglogin.jpg);
+			background-repeat:no-repeat;
+                        -webkit-background-size:cover;
+                        -moz-background-size:cover;
+                        -o-background-size:cover;
+                        background-size:cover;
+                        background-position:center;
+                        z-index: -100;
+		}
+	</style>
+        <script type='text/javascript' src="https://cdn.rawgit.com/jamesallardice/Placeholders.js/master/dist/placeholders.min.js"></script>
+        <script src="js/jquery-2.2.0.min.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/uikit.min.js"></script>
+        <script src="js/components/grid.min.js"></script>
+        
     </h:head>
     <h:body>
-        <panel>
-            <h:form>
-                <h4>LOGIN</h4>
-                <h:panelGrid columns="2">  
-                    <label>Ingrese su cuenta Id:</label>
-                    <h:inputText value="#{LoginBean.id_usuario}" required="true" requiredMessage="Campo requerido"/>
-                    <label>Ingrese su contraseña:</label>
-                    <h:inputSecret value="#{LoginBean.contrasena}" required="true" requiredMessage="Campo requerido"/>
-                </h:panelGrid>
-                <br/>
-                <label>Mensaje: </label>
-                <h:outputText value="#{LoginBean.mensaje}"/>
-                <br/>
-                <br/>
-                <h:commandButton action="#{LoginBean.login}" value="login" />                
-            </h:form>
-        </panel>
+        
+        <nav class="tm-navbar uk-navbar uk-navbar-attached">
+		<a href="" class="uk-navbar-brand uk-visible-large">
+                    <img src="images/logo1.png" width="90" height="30"></img>
+		</a>
+		<ul class="uk-navbar-nav uk-visible-large">
+			
+			<li class="uk-active"><a href="login.html">Login</a></li>
+			<li><a href="home.xhtml">Volver a inicio</a></li>	
+		</ul>
+
+		<a href="#offcanvas" class="uk-navbar-toggle uk-hidden-large" data-uk-offcanvas=""></a>
+                <a href="" class="uk-navbar-brand uk-navbar-center uk-hidden-large"><img src="images/logo1.png" width="90" height="30"></img></a>				
+	</nav><br></br><br></br><br></br>
+        
+        <div>
+
+		
+
+		<div class="uk-vertical-align uk-text-center uk-height-1-1">
+			<div class="uk-vertical-align-middle" style="width: 250px;" id="boxlogin" data-uk-scrollspy="{cls:'uk-animation-fade', delay:600, repeat: true}">
+				
+				<h:form class="uk-panel uk-panel-box uk-form">
+					<div class="uk-form-row">
+                                            <h:inputText class="uk-width-1-1 uk-form-large" value="#{LoginBean.id_usuario}" />
+                                            	
+					</div>
+					<div class="uk-form-row">
+                                            <h:inputSecret class="uk-width-1-1 uk-form-large"  value="#{LoginBean.contrasena}" />
+					</div>
+					<div class="uk-form-row">
+						
+                                                <h:commandButton class="uk-width-1-1 uk-button uk-button-primary uk-button-large" action="#{LoginBean.login}" value="login" /> 
+					</div>
+					<div class="uk-form-row uk-text-small">
+						<a class="uk-float-right uk-link uk-link-muted" href="#">Olvidaste tu Contraseña?</a>
+					</div>
+
+				</h:form>
+				
+			</div>
+			
+		</div>
+
+	<!--Menu off canvas-->
+	<div id="offcanvas" class="uk-offcanvas">
+			<div class="uk-offcanvas-bar">
+				<ul class="uk-nav uk-nav-offcanvas">
+					<li class="uk-active"><a href="login.html">Login</a></li>
+					<li><a href="home.html">Volver a inicio</a></li>		
+				</ul>
+			</div>
+		</div>
+
+
+		
+	</div>   
     </h:body>
 </html>
 

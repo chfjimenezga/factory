@@ -163,7 +163,7 @@ public class AdministradorBean {
     public void buscaMateria(){
         AdministradorController administradorController = new AdministradorController();
         
-        iniciarTablas();
+        //iniciarTablas();
         materias = administradorController.todasMaterias();
         
     }
@@ -171,7 +171,7 @@ public class AdministradorBean {
     public void buscaEmpleados(){
         AdministradorController administradorController = new AdministradorController();
         
-        iniciarTablas();
+        //iniciarTablas();
         empleados = administradorController.empleados();
         //empleadoID = "segundo";
         

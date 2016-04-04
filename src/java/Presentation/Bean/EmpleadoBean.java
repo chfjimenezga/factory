@@ -55,11 +55,12 @@ public class EmpleadoBean {
       return materias;
    }
    
-    public void buscaMateria(){
+    public String buscaMateria(){
         EmpleadoController empleadoController = new EmpleadoController();
         materias = new ArrayList<Materia>();
         System.out.println("DA CLICK A BEAN");
         materias = empleadoController.listarMaterias();
+        return "EmpleadoMaterias";
     }
     
     public String logout(){
