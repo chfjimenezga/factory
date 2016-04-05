@@ -11,7 +11,9 @@ import DataAccess.Entity.Materia;
 import DataAccess.Entity.Usuario;
 import java.util.ArrayList;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +23,8 @@ import javax.servlet.http.HttpServletRequest;
  */
 @ManagedBean(name = "AdministradorBean")
 //@RequestScoped
-@ViewScoped
+//@ViewScoped
+@ApplicationScoped
 //@SessionScoped
 public class AdministradorBean {
     
@@ -177,7 +180,7 @@ public class AdministradorBean {
         
     }
     
-    public void editarEmpleado(String idUsuario){
+    public String editarEmpleado(String idUsuario){
         System.out.println(idUsuario);
         Usuario empleado = new Usuario();
         AdministradorController administradorController = new AdministradorController();
@@ -187,7 +190,7 @@ public class AdministradorBean {
         setEmpleadoNombre(empleadoNombre);
         empleadoContrasenia = empleado.getContraseña();
         iniciarTablas();
-        //return "editarEmpleado";
+        return "editarEmpleado";
     }
     
     public String salvarEmpleado(){
@@ -214,7 +217,7 @@ public class AdministradorBean {
         return "Administrador";
     }
     
-    public void editarMateria(int idMateria){
+    public String editarMateria(int idMateria){
         Materia materia = new Materia();
         AdministradorController administradorController = new AdministradorController();
         materia = administradorController.buscarMateria(idMateria);
@@ -224,6 +227,7 @@ public class AdministradorBean {
         materiaUnidad = materia.getUnidadDeMedida();
         materiaCantidad = materia.getCantidadDisponible();
         iniciarTablas();
+        return "EditarMateria";
     }
     
     public String salvarMateria(){

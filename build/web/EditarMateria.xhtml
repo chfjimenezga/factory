@@ -21,19 +21,24 @@
         
     </h:head>
     <h:body>
-        <c:set var="root" value="#{request.contextPath}/faces/" />
-               
+        <c:set var="root" value="#{request.contextPath}/faces/" /> 
+        
         <h:form>
-            <h3>Edicion datos empleado</h3>
-            <label>Id del empleado:</label>
-            <h:outputText value="#{AdministradorBean.empleadoID}"/><br/>
-            <label>Nombre del empleado:</label>
-            <h:inputText value="#{AdministradorBean.empleadoNombre}"/><br/>
-            <label>Contraseña del empleado:</label>
-            <h:inputText value="#{AdministradorBean.empleadoContrasenia}"/><br/>
-            <h:commandButton action="#{AdministradorBean.salvarEmpleado()}" value="Modificar"/>
+            <h3>Edicion información materia</h3>
+            <label>Identificador de la materia:</label>
+            <h:outputText value="#{AdministradorBean.materiaID}"/><br/>
+            <label>Nombre de la materia:</label>
+            <h:inputText value="#{AdministradorBean.materiaNombre}"/><br/>
+            <label>Cantidad disponible:</label>
+            <h:inputText value="#{AdministradorBean.materiaCantidad}"/><br/>
+            <label>Unidad de medida:</label>
+            <h:inputText value="#{AdministradorBean.materiaUnidad}"/><br/>
+            <label>Descripcion:</label>
+            <h:inputText value="#{AdministradorBean.materiaDescripcion}"/><br/>
+            <h:commandButton action="#{AdministradorBean.salvarMateria()}" value="Modificar"/>
             <h:commandButton action="Administrador" value="Volver"/>
         </h:form>
         
+   
     </h:body>
 </html>
