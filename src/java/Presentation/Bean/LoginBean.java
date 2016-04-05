@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestScoped
 public class LoginBean {
     private String id_usuario;
+    private String nombre_usuario;
     private String contrasena;
     private String mensaje;
     private final HttpServletRequest httpServletRequest;
@@ -55,7 +56,16 @@ public class LoginBean {
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
     }
+
+    public String getNombre_usuario() {
+        return nombre_usuario;
+    }
+
+    public void setNombre_usuario(String nombre_usuario) {
+        this.nombre_usuario = nombre_usuario;
+    }
     
+       
     public String login(){
         System.out.println("Entro al login de bean");
         LoginUsuario loginUsuario = new LoginUsuario();
@@ -64,6 +74,7 @@ public class LoginBean {
             httpServletRequest.getSession().setAttribute("sessionUsuario", id_usuario);
             facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO, "Acceso Correcto", null);
             faceContext.addMessage(null, facesMessage);
+            nombre_usuario = loginUsuario.nombre(id_usuario);
             return loginUsuario.Rol(id_usuario);
         }else{
             FacesMessage fm = new FacesMessage("Error de login, verifique información","ERROR MSG");
