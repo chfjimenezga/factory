@@ -75,7 +75,7 @@
             
             <div class="uk-grid" data-uk-grid-margin="">
                 <div class="uk-width-1-1 uk-row-fist">
-                    <h2 class="uk-heading-large">Bienvenido <h:outputText value="#{LoginBean.nombre_usuario}"/>!</h2>
+                    <h2 class="uk-heading-large">Bienvenido!</h2>
                 </div>
             </div>
             
@@ -155,7 +155,7 @@
                         </div>
                         <div class="uk-text-right">
                             <hr class="uk-grid-divider"></hr>
-                            <a href="#adduser" data-uk-modal="" class="uk-button uk-button-primary">Nuevo Usuario</a>
+                            <a href="#adduser" data-uk-modal="" class="uk-button uk-button-primary" action="#{AdministradorBean.limpiarEmpleado()}">Nuevo Usuario</a>
                         </div>
                         
                         
@@ -196,7 +196,7 @@
                         </div>
                         <div class="uk-text-right">
                             <hr class="uk-grid-divider"></hr>
-                            <a href="#addmateria" data-uk-modal="" class="uk-button uk-button-primary">Nuevo Material</a>
+                            <a href="#addmateria" data-uk-modal="" class="uk-button uk-button-primary" action="#{AdministradorBean.limpiarMateria()}">Nuevo Material</a>
                         </div>
                         
                     </div>

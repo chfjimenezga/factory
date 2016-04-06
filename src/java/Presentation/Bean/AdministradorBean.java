@@ -163,7 +163,7 @@ public class AdministradorBean {
         empleados = new ArrayList<Usuario>();
         return "index";
     }*/
-    
+        
     public void buscaMateria(){
         AdministradorController administradorController = new AdministradorController();
         
@@ -218,6 +218,12 @@ public class AdministradorBean {
         return "Administrador";
     }
     
+    public void limpiarEmpleado(){
+        empleadoID="";
+        empleadoNombre="";
+        empleadoContrasenia="";
+    }
+        
     public String editarMateria(int idMateria){
         Materia materia = new Materia();
         AdministradorController administradorController = new AdministradorController();
@@ -242,6 +248,14 @@ public class AdministradorBean {
         AdministradorController administradorController = new AdministradorController();
         administradorController.insertarMateria(materiaID, materiaNombre, materiaCantidad, materiaDescripcion,materiaUnidad);
         return "Administrador";
+    }
+    
+    public void limpiarMateria(){
+        materiaID = 0;
+        materiaNombre = "";
+        materiaCantidad = 0;
+        materiaDescripcion = "";
+        materiaUnidad = "";
     }
     
     public String eliminarMateria(Integer idMateria){

@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import BusinessLogic.Controller.LoginUsuario;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @ManagedBean(name = "LoginBean")
 @RequestScoped
+//@SessionScoped
 public class LoginBean {
     private String id_usuario;
     private String nombre_usuario;
