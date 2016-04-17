@@ -18,6 +18,8 @@
 	<link rel="stylesheet" href="css/adiciones/estilonav.css" />
         <link rel="stylesheet" href="css/adiciones/subslider.css" />
         
+        
+        
         <script>
             function change()
             {
@@ -82,9 +84,9 @@
         </div>
         <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
             <h3>¿Qué desea hacer?</h3>
-                    <div class="uk-grid" data-uk-grid-margin="" data-uk-grid-match="{target:'.uk-panel'}">
-                        <div class="uk-width-medium-1-3 uk-row-first">
-                            <div class="uk-panel uk-panel-box">
+                    <div  class="uk-grid" data-uk-grid-margin="" data-uk-grid-match="{target:'.uk-panel'}">
+                        <div  class="uk-width-medium-1-3 uk-row-first">
+                            <div style="border-color: #999;" class="uk-panel uk-panel-box">
                                 <h3 class="uk-panel-title">Empleados</h3>
                                 Gestionar empleados.<br></br><br></br>
                                 <div class="uk-button-group uk-align-right">
@@ -96,7 +98,7 @@
                         </div>
                         
                         <div class="uk-width-medium-1-3 uk-row-first">
-                            <div class="uk-panel uk-panel-box">
+                            <div style="border-color: #999;" class="uk-panel uk-panel-box">
                                 <h3 class="uk-panel-title">Materia Prima</h3>
                                 Gestionar materia prima.<br></br><br></br>
                                 <div class="uk-button-group uk-align-right">
@@ -108,7 +110,7 @@
                         </div>
                         
                         <div class="uk-width-medium-1-3 uk-row-first">
-                            <div class="uk-panel uk-panel-box">
+                            <div style="border-color: #999;" class="uk-panel uk-panel-box">
                                 <h3 class="uk-panel-title">Salir</h3>
                                 De click en el botón salir para cerrar sesión.<br></br><br></br>
                                 <div class="uk-text-right">
@@ -129,11 +131,11 @@
             <div class="uk-grid" data-uk-grid-margin="">
                 <!--TABLA DE USUARIOS-->
                 <div class="uk-width-medium-1-2 uk-row-fist">
-                    <div id="usuario" class="uk-hidden uk-panel uk-panel-box">
+                    <div id="usuario" style="border-color: #999;" class="uk-hidden uk-panel uk-panel-box">
                         <div class="uk-overflow-container">
                             <h:dataTable class="uk-table uk-table-hover uk-table-striped uk-table-condensed uk-text-nowrap" value="#{AdministradorBean.empleados}" var="emp">
                                 <h:column>    				
-                                   <f:facet name="header">Nombre</f:facet>    				
+                                    <f:facet name="header">Nombre</f:facet>    				
                                    #{emp.nombre}
                                 </h:column>
                                 <h:column>
@@ -165,7 +167,7 @@
                 
                 <!--TABLA DE MATERIALES-->
                 <div class="uk-width-medium-1-2 uk-row-fist">                
-                    <div id="materia" class="uk-hidden uk-panel uk-panel-box">
+                    <div id="materia" style="border-color: #999;" class="uk-hidden uk-panel uk-panel-box">
                         <div class="uk-overflow-container">
                             <h:dataTable class="uk-table uk-table-hover uk-table-striped uk-table-condensed uk-text-nowrap" value="#{AdministradorBean.materias}" var="mat">
                                 <h:column>    				
@@ -181,7 +183,9 @@
                                    #{mat.descripcion}
                                 </h:column>
                                 <h:column>
+                                    <f:facet name="header">Acción</f:facet>
                                     <h:form>
+                                        
                                         <div class="uk-button-group">
 
                                                 <h:commandButton class="uk-button uk-button-success" action="#{AdministradorBean.editarMateria(mat.idMateria)}" value="Editar"/>
@@ -225,7 +229,9 @@
                                 </div>
                                 <div class="uk-modal-footer uk-text-right">
                                     <button type="button" class="uk-button uk-modal-close">Cancelar</button>
-                                    <h:commandButton class="uk-button uk-button-primary" action="#{AdministradorBean.insertarEmpleado()}" value="Guardar"/>
+                                    <h:commandButton style="color: white;" class="uk-button uk-button-primary" action="#{AdministradorBean.insertarEmpleado()}" value="guardar"/>
+                                    
+                                    
                                 </div>
                             </h:form>
                             
@@ -235,13 +241,13 @@
 		      </div>
                 
                 <div id="addmateria" class="uk-modal">
-                    <div class="uk-modal-dialog">
+                    <div id="css" class="uk-modal-dialog">
                         <a class="uk-modal-close uk-close"></a>
 		        <div class="uk-modal-header"><h2>Agregar Nuevo Material</h2></div>
                         <div class="uk-overflow-container">
                             <!--CONTENIDO FORMULARIO LLENADO-->
                             <h:form class="uk-panel uk-panel-box uk-form">
-                                <div class="uk-form-row">
+                                <div id="text" class="uk-form-row">
                                     <h4><b>Id de material</b></h4><br/>
                                     <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.materiaID}"/>
                                 </div>
@@ -263,7 +269,9 @@
                                 </div>
                                 <div class="uk-modal-footer uk-text-right">
                                     <button type="button" class="uk-button uk-modal-close">Cancelar</button>
-                                    <h:commandButton class="uk-button uk-button-primary" action="#{AdministradorBean.insertarMateria()}" value="Guardar"/>
+                                    <h:commandButton style="color: white;" class="uk-button uk-button-primary" action="#{AdministradorBean.insertarMateria()}" value="guardar"/>
+                                    
+                                    
                                 </div>
                             </h:form>
                             
@@ -276,43 +284,7 @@
 
             </div>
         </div>
-        <br/>
-        <br/>
         
-        
-        
-        
-        
-        <h:form>
-            <h3>Edicion datos empleado</h3>
-            <label>Id del empleado:</label>
-            <h:outputText value="#{AdministradorBean.empleadoID}"/><br/>
-            <label>Nombre del empleado:</label>
-            <h:inputText value="#{AdministradorBean.empleadoNombre}"/><br/>
-            <label>Contraseña del empleado:</label>
-            <h:inputText value="#{AdministradorBean.empleadoContrasenia}"/><br/>
-            <h:commandButton action="#{AdministradorBean.salvarEmpleado()}" value="Modificar"/>
-            <h:commandButton action="Administrador" value="Volver"/>
-        </h:form>
-        
-        
-        
-        
-        <h:form>
-            <h3>Edicion información materia</h3>
-            <label>Identificador de la materia:</label>
-            <h:outputText value="#{AdministradorBean.materiaID}"/><br/>
-            <label>Nombre de la materia:</label>
-            <h:inputText value="#{AdministradorBean.materiaNombre}"/><br/>
-            <label>Cantidad disponible:</label>
-            <h:inputText value="#{AdministradorBean.materiaCantidad}"/><br/>
-            <label>Unidad de medida:</label>
-            <h:inputText value="#{AdministradorBean.materiaUnidad}"/><br/>
-            <label>Descripcion:</label>
-            <h:inputText value="#{AdministradorBean.materiaDescripcion}"/><br/>
-            <h:commandButton action="#{AdministradorBean.salvarMateria()}" value="Modificar"/>
-            <h:commandButton action="Administrador" value="Volver"/>
-        </h:form>
         
    
     </h:body>

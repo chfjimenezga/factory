@@ -12,10 +12,90 @@
         <h:outputText value="#{EmpleadoBean.id_usuario}"/>
         <h:form>
             <h:commandButton action="#{EmpleadoBean.logout()}" value="cerrar session" />
-            <h:commandButton action="#{EmpleadoBean.buscaMateria()}" value="Buscar Materias"/>
+            <h:commandButton action="#{EmpleadoBean.listaMaterias()}" value="Buscar Materias"/> 
+            <h:commandButton action="#{EmpleadoBean.listaPedidos()}" value="Buscar Pedidos"/> 
         </h:form>
         <br/>
-        <br/>        
+        <br/>    
+        
+        <div>
+            <h:dataTable value="#{EmpleadoBean.materias}" var="mat">
+                <h:column>    				
+                    <f:facet name="header">Nombre</f:facet>    				
+                    #{mat.nombre}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cantidad disponible</f:facet>
+                     #{mat.cantidadDisponible}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Descripción</f:facet>
+                    #{mat.descripcion}
+                </h:column>
+                <h:column>
+                    <h:form>
+                        <div class="uk-button-group">
+                            <h:commandButton action="#{EmpleadoBean.limpiarValores(mat.idMateria)}" value="Agregar pedido"/>                                          
+                        </div>             
+                    </h:form>
+                </h:column>
+            </h:dataTable>
+        </div>
+                
+        <div>
+            <h:dataTable value="#{EmpleadoBean.pedidos}" var="ped">
+                <h:column>    				
+                    <f:facet name="header">Id pedido</f:facet>    				
+                    #{ped.idPedido}
+                </h:column>
+                <h:column>    				
+                    <f:facet name="header">Fecha</f:facet>    				
+                    #{EmpleadoBean.conFormato(ped.fechaSolicitud)}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Estado</f:facet>
+                     #{ped.estado}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Materia</f:facet>
+                    #{EmpleadoBean.buscaMateria(ped.idMateria)}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cantidad</f:facet>
+                    #{ped.cantidad}
+                </h:column>
+                <h:column>
+                    <h:form>
+                        <div class="uk-button-group">
+                            <h:commandButton action="#{EmpleadoBean.eliminarPedido(ped.idPedido)}" value="Eliminar pedido"/>                                          
+                        </div>             
+                    </h:form>
+                </h:column>
+            </h:dataTable>
+        </div>
+        
+        
+        <h:form>
+            <div>
+                <h4><b>Id pedido:</b></h4><br/>
+                <h:inputText value="#{EmpleadoBean.id_pedido}"/>
+            </div>
+            <div>
+                <h4><b>Fecha(dd-mm-yyyy):</b></h4><br/>
+                <h:inputText value="#{EmpleadoBean.fecha}"/>
+            </div>
+            <div>
+                <h4><b>Estado:</b></h4><br/>
+                <h:inputText value="#{EmpleadoBean.estado}"/>
+            </div>
+            <div>
+                <h4><b>Cantidad:</b></h4><br/>
+                <h:inputText value="#{EmpleadoBean.cantidad}"/>
+            </div>
+            <div>
+                <h:commandButton action="#{EmpleadoBean.insertarPedido()}" value="guardar"/>           
+            </div>
+        </h:form>
         
         <h:messages infoStyle="color: blue;list-style:none;"/>
     </h:body>

@@ -191,7 +191,7 @@ public class AdministradorBean {
         setEmpleadoNombre(empleadoNombre);
         empleadoContrasenia = empleado.getContraseña();
         iniciarTablas();
-        return "editarEmpleado";
+        return "EditarEmpleado";
     }
     
     public String salvarEmpleado(){

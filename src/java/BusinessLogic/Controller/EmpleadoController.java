@@ -12,6 +12,7 @@ package BusinessLogic.Controller;
 import DataAccess.DAO.*;
 import DataAccess.Entity.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class EmpleadoController {
     
@@ -34,6 +35,25 @@ public class EmpleadoController {
         
         return materiaDAO.listarMateria();
         
+    }
+    
+    public ArrayList<Pedido> listarPedidos(){
+        PedidoDAO pedidoDAO = new PedidoDAO();
+        
+        return pedidoDAO.listarPedidos();
+    }
+    
+    public void insertarPedido(int id_pedido, Date fecha, int cantidad, String estado, Materia id_materia){
+        PedidoDAO pedidoDAO = new PedidoDAO();
+        Pedido pedido = new Pedido();
+        Pedido nuevoPedido = new Pedido(id_pedido, fecha, cantidad, estado);
+        nuevoPedido.setIdMateria(id_materia);
+        pedido = pedidoDAO.persist(nuevoPedido);
+    }
+    
+    public void eliminarPedido(Integer id_pedido){
+        PedidoDAO pedidoDAO = new PedidoDAO();
+        pedidoDAO.eliminarPedido(id_pedido);
     }
     
 }
