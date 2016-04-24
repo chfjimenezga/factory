@@ -62,7 +62,8 @@ public class PedidoDAO {
            nuevoPedido.setFechaSolicitud(pedido.getFechaSolicitud());
            nuevoPedido.setCantidad(pedido.getCantidad());
            nuevoPedido.setEstado(pedido.getEstado());
-           nuevoPedido.setIdMateria(pedido.getIdMateria());
+           nuevoPedido.setMateria(pedido.getMateria());
+           //nuevoPedido.setIdMateria(pedido.getIdMateria());
             em.getTransaction().commit();
         } catch (Exception e){
             em.getTransaction().rollback();

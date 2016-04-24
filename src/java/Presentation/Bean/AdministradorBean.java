@@ -182,7 +182,6 @@ public class AdministradorBean {
     }
     
     public String editarEmpleado(String idUsuario){
-        System.out.println(idUsuario);
         Usuario empleado = new Usuario();
         AdministradorController administradorController = new AdministradorController();
         empleado = administradorController.buscarEmpleado(idUsuario);

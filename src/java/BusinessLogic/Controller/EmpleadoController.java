@@ -43,11 +43,17 @@ public class EmpleadoController {
         return pedidoDAO.listarPedidos();
     }
     
-    public void insertarPedido(int id_pedido, Date fecha, int cantidad, String estado, Materia id_materia){
+    public Pedido buscarPedido(int id_pedido){
         PedidoDAO pedidoDAO = new PedidoDAO();
         Pedido pedido = new Pedido();
-        Pedido nuevoPedido = new Pedido(id_pedido, fecha, cantidad, estado);
-        nuevoPedido.setIdMateria(id_materia);
+        pedido = pedidoDAO.buscarIdPedido(id_pedido);
+        return pedido;
+    }
+    
+    public void insertarPedido(int id_pedido, Date fecha, int cantidad, String estado, String materia){
+        PedidoDAO pedidoDAO = new PedidoDAO();
+        Pedido pedido = new Pedido();
+        Pedido nuevoPedido = new Pedido(id_pedido, fecha, cantidad, estado, materia);
         pedido = pedidoDAO.persist(nuevoPedido);
     }
     

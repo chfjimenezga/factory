@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core" lang="en">
+    <h:head>
+        <title>Empleado - Agregar Pedido</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="css/uikit.almost-flat.min.css" />
+	<link rel="stylesheet" href="css/components/sticky.almost-flat.min.css" />
+	<link rel="stylesheet" href="css/components/slideshow.almost-flat.min.css" />
+	<link rel="stylesheet" href="css/components/slidenav.almost-flat.min.css" />
+	<link rel="stylesheet" href="css/components/dotnav.almost-flat.min.css" />
+	<link rel="stylesheet" href="css/components/slider.min.css" />
+	<link rel="stylesheet" href="css/adiciones/estilonav.css" />
+        <link rel="stylesheet" href="css/adiciones/subslider.css" />
+        <script>
+            function change()
+            {
+                var elem = document.getElementById("boton");
+                if (elem.value==="Ocultar Tabla") elem.value = "Mostrar Tabla";
+                else elem.value = "Ocultar Tabla";
+            }
+            
+            function changen()
+            {
+                var elem = document.getElementById("botonn");
+                if (elem.value==="Ocultar Tabla") elem.value = "Mostrar Tabla";
+                else elem.value = "Ocultar Tabla";
+            }
+        </script>
+        <script src="js/jquery-2.2.0.min.js"></script>
+        <script src="js/uikit.min.js"></script>
+        <script src="js/components/sticky.min.js"></script>
+        <script src="js/components/slideshow.min.js"></script>
+        <script src="js/components/slideshow-fx.min.js"></script>
+        <script src="js/components/slideset.min.js"></script>
+        <script src="js/components/grid.min.js"></script>
+        
+    </h:head>
+    <h:body>
+        <c:set var="root" value="#{request.contextPath}/faces/" />
+        <nav class="tm-navbar uk-navbar uk-navbar-attached" data-uk-sticky="">
+            <a href="" class="uk-navbar-brand uk-visible-large">
+                <img src="images/logo1.png" width="90" height="30"></img>
+            </a>
+            <ul class="uk-navbar-nav uk-visible-large">
+                <li class="uk-active"><a>Gestión Pedidos</a></li>
+                
+         
+                <!--pendiente el menu-->            
+            </ul>
+
+            <a href="#offcanvas" class="uk-navbar-toggle uk-hidden-large" data-uk-offcanvas=""></a>
+            <a href="" class="uk-navbar-brand uk-navbar-center uk-hidden-large"><img src="images/logo1.png" width="90" height="30"></img></a>             
+        </nav>
+
+        <!--menu offcanvas-->
+        <div id="offcanvas" class="uk-offcanvas">
+                <div class="uk-offcanvas-bar">
+                    <ul class="uk-nav uk-nav-offcanvas">
+                        <li class="uk-active"><a>Gestión Pedidos</a></li>
+                        <li><a href="#">Cerrar sesión</a></li>
+                        <!--pendiente el menu-->
+                    </ul>
+                </div>
+            </div>
+        
+        <div  class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+            
+            <div class="uk-grid" data-uk-grid-margin="">
+                <div class="uk-width-1-1 uk-row-fist">
+                    <h2 class="uk-heading-large">Agregar Pedido</h2>
+                </div>
+            </div>
+            
+        </div>
+               
+        <div>
+                    <div >
+                        <a></a>
+		        <div ><h2>Agregar Nuevo Pedido</h2></div>
+                        <div style="display: block; overflow-y: scroll;">
+                            <div class="uk-grid uk-flex-center" data-uk-grid-margin="" >
+                                <div class="uk-width-medium-1-2 uk-height-viewport uk-cover-background uk-row-first" style="background-image: url('images/pedido.jpg');"></div>
+                                <div class="uk-width-medium-1-2" >
+                                    <div class="uk-overflow-container">
+                                        <h3>Llene los siguientes campos</h3>
+                                        <h:form class="uk-panel uk-panel-box uk-form">
+                                            <div class="uk-form-row">
+                                                <h4><b>Id del Pedido:</b></h4><br/>
+                                                <h:inputText class="uk-width-1-1 uk-form-large" value="#{EmpleadoBean.id_pedido}"/>
+                                            </div>
+                                            <div class="uk-form-row">
+                                                <h4><b>Fecha (dd-mm-yyyy):</b></h4><br/>
+                                                <h:inputText class="uk-width-1-1 uk-form-large" value="#{EmpleadoBean.fecha}"/>
+                                            </div>
+                                            <div class="uk-form-row">
+                                                <h4><b>Estado:</b></h4><br/>
+                                                <h:inputText class="uk-width-1-1 uk-form-large" value="#{EmpleadoBean.estado}"/>
+                                            </div>
+                                            <div class="uk-form-row">
+                                                <h4><b>Cantidad:</b></h4><br/>
+                                                <h:inputText class="uk-width-1-1 uk-form-large" value="#{EmpleadoBean.cantidad}"/>
+                                            </div>
+                                            <div class="uk-align-right">
+                                                <br></br>
+                                                <button type="button" class="uk-button uk-modal-close">Cancelar</button>
+                                                <h:commandButton style="color: white;" class="uk-button uk-button-primary" action="#{EmpleadoBean.insertarPedido()}" value="guardar"/>
+
+
+                                            </div>
+                                        </h:form>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+ 
+		          </div>
+		        </div>
+		      </div>
+        
+        
+    </h:body>
+</html>

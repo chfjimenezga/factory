@@ -39,7 +39,7 @@ public class EmpleadoBean {
     private String fecha;
     private int cantidad;
     private String estado;
-    private Materia materiaPedido;
+    private String materiaPedido;
     
     
     public EmpleadoBean(){
@@ -56,7 +56,7 @@ public class EmpleadoBean {
             fecha = "";
             cantidad =0;
             estado ="";
-            materiaPedido = new Materia();
+            materiaPedido = "";
             
         }
     }      
@@ -121,11 +121,11 @@ public class EmpleadoBean {
         this.estado = estado;
     }
 
-    public Materia getMateriaPedido() {
+    public String getMateriaPedido() {
         return materiaPedido;
     }
 
-    public void setMateriaPedido(Materia materiaPedido) {
+    public void setMateriaPedido(String materiaPedido) {
         this.materiaPedido = materiaPedido;
     }
           
@@ -162,27 +162,32 @@ public class EmpleadoBean {
          return fecha2;
     }
     
-    public void insertarPedido(){
+    public String insertarPedido(){
         EmpleadoController empleadoController = new EmpleadoController();
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy"); 
         Date nuevaFecha = new Date();
+        System.out.println("EL NUEVO PEDIDO VA CON MATERIA ID: "+materiaPedido);
         try{  
             nuevaFecha = sdf.parse(fecha);  
             }catch(ParseException pe){  
                 System.out.println("ERROR DE FECHA");
             } 
         empleadoController.insertarPedido(id_pedido, nuevaFecha, cantidad, estado, materiaPedido);
-        //return "Administrador";
+        return "Empleado";
     }
     
-    public void limpiarValores(int id_materia){
+    public String limpiarValores(int id_materia){
+        System.out.println("LIMPIAR VALORES CLICK---"+id_materia);
         EmpleadoController empleadoController = new EmpleadoController();
-        
+        Materia materiaPedidoTemp = new Materia();
         id_pedido=0;
         fecha = "";
         cantidad =0;
         estado ="";
-        materiaPedido = empleadoController.materia(id_materia);
+        materiaPedidoTemp = empleadoController.materia(id_materia);
+        materiaPedido = materiaPedidoTemp.getNombre();
+        
+        return "AgregarPedido";
     } 
     
     public String eliminarPedido(Integer id_pedido){

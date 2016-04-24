@@ -209,74 +209,96 @@
                 <!--MODALES ADICION USUARIO Y MATERIAL-->
                 
                 <div id="adduser" class="uk-modal">
-                    <div class="uk-modal-dialog">
+                    <div class="uk-modal-dialog uk-modal-dialog-large">
                         <a class="uk-modal-close uk-close"></a>
 		        <div class="uk-modal-header"><h2>Agregar Nuevo Usuario</h2></div>
-                        <div class="uk-overflow-container">
-                            <!--CONTENIDO FORMULARIO LLENADO-->
-                            <h:form class="uk-panel uk-panel-box uk-form">
-                                <div class="uk-form-row">
-                                    <h4><b>Id del empleado:</b></h4><br/>
-                                    <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.empleadoID}"/>
-                                </div>
-                                <div class="uk-form-row">
-                                    <h4><b>Nombre del empleado:</b></h4><br/>
-                                    <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.empleadoNombre}"/>
-                                </div>
-                                <div class="uk-form-row">
-                                    <h4><b>Contraseña:</b></h4><br/>
-                                    <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.empleadoContrasenia}"/>
-                                </div>
-                                <div class="uk-modal-footer uk-text-right">
-                                    <button type="button" class="uk-button uk-modal-close">Cancelar</button>
-                                    <h:commandButton style="color: white;" class="uk-button uk-button-primary" action="#{AdministradorBean.insertarEmpleado()}" value="guardar"/>
+                        <div style="display: block; overflow-y: scroll;">
+                            <div class="uk-grid uk-flex-center" data-uk-grid-margin="" >
+                                <div class="uk-width-medium-1-2 uk-height-viewport uk-cover-background uk-row-first" style="background-image: url('images/usuario.jpg');"></div>
+                                <div class="uk-width-medium-1-2" >
+                                    <div class="uk-overflow-container">
+                                        <h3>Llene los siguientes campos</h3>
+                                        <h:form class="uk-panel uk-panel-box uk-form">
+                                            <div class="uk-form-row">
+                                                <h4><b>Id del empleado:</b></h4><br/>
+                                                <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.empleadoID}"/>
+                                            </div>
+                                            <div class="uk-form-row">
+                                                <h4><b>Nombre del empleado:</b></h4><br/>
+                                                <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.empleadoNombre}"/>
+                                            </div>
+                                            <div class="uk-form-row">
+                                                <h4><b>Contraseña:</b></h4><br/>
+                                                <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.empleadoContrasenia}"/>
+                                            </div>
+                                            
+                                            <div class="uk-align-right">
+                                                <br></br>
+                                                <button type="button" class="uk-button uk-modal-close">Cancelar</button>
+                                                <h:commandButton style="color: white;" class="uk-button uk-button-primary" action="#{AdministradorBean.insertarEmpleado()}" value="guardar"/>
+
+
+                                            </div>
+                                        </h:form>
+                                    </div>
                                     
-                                    
                                 </div>
-                            </h:form>
+                            </div>
                             
-		            
+ 
 		          </div>
+
 		        </div>
 		      </div>
                 
                 <div id="addmateria" class="uk-modal">
-                    <div id="css" class="uk-modal-dialog">
+                    <div id="css" class="uk-modal-dialog uk-modal-dialog-large">
                         <a class="uk-modal-close uk-close"></a>
 		        <div class="uk-modal-header"><h2>Agregar Nuevo Material</h2></div>
-                        <div class="uk-overflow-container">
-                            <!--CONTENIDO FORMULARIO LLENADO-->
-                            <h:form class="uk-panel uk-panel-box uk-form">
-                                <div id="text" class="uk-form-row">
-                                    <h4><b>Id de material</b></h4><br/>
-                                    <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.materiaID}"/>
-                                </div>
-                                <div class="uk-form-row">
-                                    <h4><b>Nombre de material:</b></h4><br/>
-                                    <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.materiaNombre}"/>
-                                </div>
-                                <div class="uk-form-row">
-                                    <h4><b>Cantidad:</b></h4><br/>
-                                    <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.materiaCantidad}"/>
-                                </div>
-                                <div class="uk-form-row">
-                                    <h4><b>Unidad de Medida:</b></h4><br/>
-                                    <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.materiaUnidad}"/>
-                                </div>
-                                <div class="uk-form-row">
-                                    <h4><b>Descripción:</b></h4><br/>
-                                    <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.materiaDescripcion}"/>
-                                </div>
-                                <div class="uk-modal-footer uk-text-right">
-                                    <button type="button" class="uk-button uk-modal-close">Cancelar</button>
-                                    <h:commandButton style="color: white;" class="uk-button uk-button-primary" action="#{AdministradorBean.insertarMateria()}" value="guardar"/>
+                        <div style="display: block; overflow-y: scroll;">
+                            <div class="uk-grid uk-flex-center" data-uk-grid-margin="" >
+                                <div class="uk-width-medium-1-2 uk-height-viewport uk-cover-background uk-row-first" style="background-image: url('images/material.jpg');"></div>
+                                <div class="uk-width-medium-1-2" >
+                                    <div class="uk-overflow-container">
+                                        <h3>Llene los siguientes campos</h3>
+                                        <h:form class="uk-panel uk-panel-box uk-form">
+                                            <div class="uk-form-row">
+                                                <h4><b>Id de material</b></h4><br/>
+                                                <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.materiaID}"/>
+                                            </div>
+                                            <div class="uk-form-row">
+                                                <h4><b>Nombre de material:</b></h4><br/>
+                                                <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.materiaNombre}"/>
+                                            </div>
+                                            <div class="uk-form-row">
+                                                <h4><b>Cantidad:</b></h4><br/>
+                                                <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.materiaCantidad}"/>
+                                            </div>
+                                            <div class="uk-form-row">
+                                                <h4><b>Unidad de Medida:</b></h4><br/>
+                                                <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.materiaUnidad}"/>
+                                            </div>
+                                            <div class="uk-form-row">
+                                                <h4><b>Descripción:</b></h4><br/>
+                                                <h:inputText class="uk-width-1-1 uk-form-large" value="#{AdministradorBean.materiaDescripcion}"/>
+                                            </div>
+                                            
+                                            <div class="uk-align-right">
+                                                <br></br>
+                                                <button type="button" class="uk-button uk-modal-close">Cancelar</button>
+                                                <h:commandButton style="color: white;" class="uk-button uk-button-primary" action="#{AdministradorBean.insertarMateria()}" value="guardar"/>
+
+
+                                            </div>
+                                        </h:form>
+                                    </div>
                                     
-                                    
                                 </div>
-                            </h:form>
+                            </div>
                             
-		            
+ 
 		          </div>
+                        
 		        </div>
 		      </div>
                 

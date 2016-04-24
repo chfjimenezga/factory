@@ -84,7 +84,6 @@ public class AdministradorController {
         materia = materiaDAO.persist(newMateria);
         materia.setDescripcion(descripcion_materia);
         materiaDAO.editar(materia);
-        System.out.println("SIRVE INSERTAR MATERIA");
     }
     
     public void eliminarMateria(Integer id_materia){

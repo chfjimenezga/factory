@@ -69,7 +69,6 @@ public class LoginBean {
     
        
     public String login(){
-        System.out.println("Entro al login de bean");
         LoginUsuario loginUsuario = new LoginUsuario();
         
         if (loginUsuario.Login(id_usuario, contrasena)){

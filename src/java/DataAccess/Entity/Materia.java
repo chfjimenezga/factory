@@ -6,20 +6,16 @@
 package DataAccess.Entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -60,8 +56,6 @@ public class Materia implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "unidad_de_medida")
     private String unidadDeMedida;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMateria")
-    private Collection<Pedido> pedidoCollection;
 
     public Materia() {
     }
@@ -115,15 +109,6 @@ public class Materia implements Serializable {
 
     public void setUnidadDeMedida(String unidadDeMedida) {
         this.unidadDeMedida = unidadDeMedida;
-    }
-
-    @XmlTransient
-    public Collection<Pedido> getPedidoCollection() {
-        return pedidoCollection;
-    }
-
-    public void setPedidoCollection(Collection<Pedido> pedidoCollection) {
-        this.pedidoCollection = pedidoCollection;
     }
 
     @Override

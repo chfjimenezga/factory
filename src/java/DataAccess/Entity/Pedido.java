@@ -6,25 +6,19 @@
 package DataAccess.Entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -38,11 +32,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Pedido.findByIdPedido", query = "SELECT p FROM Pedido p WHERE p.idPedido = :idPedido"),
     @NamedQuery(name = "Pedido.findByFechaSolicitud", query = "SELECT p FROM Pedido p WHERE p.fechaSolicitud = :fechaSolicitud"),
     @NamedQuery(name = "Pedido.findByCantidad", query = "SELECT p FROM Pedido p WHERE p.cantidad = :cantidad"),
-    @NamedQuery(name = "Pedido.findByEstado", query = "SELECT p FROM Pedido p WHERE p.estado = :estado")})
+    @NamedQuery(name = "Pedido.findByEstado", query = "SELECT p FROM Pedido p WHERE p.estado = :estado"),
+    @NamedQuery(name = "Pedido.findByMateria", query = "SELECT p FROM Pedido p WHERE p.materia = :materia")})
 public class Pedido implements Serializable {
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pedido")
-    private Collection<UsuarioModificaPedido> usuarioModificaPedidoCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -64,9 +56,11 @@ public class Pedido implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "estado")
     private String estado;
-    @JoinColumn(name = "id_materia", referencedColumnName = "id_materia")
-    @ManyToOne(optional = false)
-    private Materia idMateria;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
+    @Column(name = "materia")
+    private String materia;
 
     public Pedido() {
     }
@@ -75,11 +69,12 @@ public class Pedido implements Serializable {
         this.idPedido = idPedido;
     }
 
-    public Pedido(Integer idPedido, Date fechaSolicitud, int cantidad, String estado) {
+    public Pedido(Integer idPedido, Date fechaSolicitud, int cantidad, String estado, String materia) {
         this.idPedido = idPedido;
         this.fechaSolicitud = fechaSolicitud;
         this.cantidad = cantidad;
         this.estado = estado;
+        this.materia = materia;
     }
 
     public Integer getIdPedido() {
@@ -114,12 +109,12 @@ public class Pedido implements Serializable {
         this.estado = estado;
     }
 
-    public Materia getIdMateria() {
-        return idMateria;
+    public String getMateria() {
+        return materia;
     }
 
-    public void setIdMateria(Materia idMateria) {
-        this.idMateria = idMateria;
+    public void setMateria(String materia) {
+        this.materia = materia;
     }
 
     @Override
@@ -145,15 +140,6 @@ public class Pedido implements Serializable {
     @Override
     public String toString() {
         return "DataAccess.Entity.Pedido[ idPedido=" + idPedido + " ]";
-    }
-
-    @XmlTransient
-    public Collection<UsuarioModificaPedido> getUsuarioModificaPedidoCollection() {
-        return usuarioModificaPedidoCollection;
-    }
-
-    public void setUsuarioModificaPedidoCollection(Collection<UsuarioModificaPedido> usuarioModificaPedidoCollection) {
-        this.usuarioModificaPedidoCollection = usuarioModificaPedidoCollection;
     }
     
 }
