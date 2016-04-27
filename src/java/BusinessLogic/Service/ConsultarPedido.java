@@ -15,8 +15,8 @@ import javax.jws.WebParam;
  *
  * @author Usuario
  */
-@WebService(serviceName = "ConsultarPedidoWS")
-public class ConsultarPedidoWS {
+@WebService(serviceName = "ConsultarPedido")
+public class ConsultarPedido {
 
     /**
      * This is a sample web service operation

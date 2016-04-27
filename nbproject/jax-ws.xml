@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
-    <service name="ConsultarPedidoWS">
-      <implementation-class>BusinessLogic.Service.ConsultarPedidoWS</implementation-class>
+    <service name="ConsultarPedido">
+      <implementation-class>BusinessLogic.Service.ConsultarPedido</implementation-class>
     </service>
   </services>
   <clients/>
